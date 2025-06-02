@@ -3,6 +3,7 @@ from .schemas import FoodProfile, FoodSummary
 
 router = APIRouter()
 
+
 @router.get("/foods", response_model=list[FoodSummary])
 def search_foods(query: str):
     """Search for foods by name."""
