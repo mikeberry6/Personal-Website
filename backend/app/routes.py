@@ -16,11 +16,21 @@ router = APIRouter(tags=["Foods"])
 # Mock data (until DB is wired up)
 # ──────────────────────────────
 MOCK_FOODS = [
-    FoodSummary(id=1, name="Broccoli", thumbnail_url="https://example.com/broc.jpg"),
     FoodSummary(
-        id=2, name="Broccoli sprouts", thumbnail_url="https://example.com/brocs.jpg"
+        id=1,
+        name="Broccoli",
+        thumbnail_url="https://example.com/broc.jpg",
     ),
-    FoodSummary(id=3, name="Chia seed", thumbnail_url="https://example.com/chia.jpg"),
+    FoodSummary(
+        id=2,
+        name="Broccoli sprouts",
+        thumbnail_url="https://example.com/brocs.jpg",
+    ),
+    FoodSummary(
+        id=3,
+        name="Chia seed",
+        thumbnail_url="https://example.com/chia.jpg",
+    ),
 ]
 
 # ──────────────────────────────
@@ -65,6 +75,8 @@ QUERY_RE = re.compile(r"^[a-zA-Z0-9 \-]+$")
 
 
 class SortBy(str):
+    """Permitted sorting keys returned to the client."""
+
     relevance = "relevance"
     calories = "calories"
     protein = "protein"
@@ -84,7 +96,7 @@ class SortBy(str):
         429: {"model": ErrorResponse},
     },
 )
-async def search_foods(
+async def search_foods(  # noqa: D401  (simple present docstring rule)
     request: Request,
     response: Response,
     query: str = Query(..., min_length=2, max_length=60),
@@ -92,8 +104,12 @@ async def search_foods(
     page_size: int = Query(20, ge=1, le=100),
     sort_by: SortBy = Query(SortBy.relevance),
     include_phytochemicals: bool = Query(True),
-):
-    """Search for foods using naïve substring matching against `MOCK_FOODS`."""
+) -> PaginatedFoods:
+    """
+    Simple substring match search against ``MOCK_FOODS``.
+
+    Real implementation will call a database or Open Food Facts API.
+    """
     if not QUERY_RE.match(query):
         raise HTTPException(status_code=400, detail="Invalid characters in query")
 
@@ -104,42 +120,62 @@ async def search_foods(
         raise HTTPException(status_code=404, detail="No foods found")
 
     total = len(filtered)
-    start, end = (page - 1) * page_size, (page - 1) * page_size + page_size
+    start = (page - 1) * page_size
+    end = start + page_size
     items = filtered[start:end]
 
-    next_page = (
-        f"/v1/foods?query={query}&page={page + 1}&page_size={page_size}"
-        if end < total
-        else None
+    next_page: str | None = None
+    if end < total:
+        next_page = (
+            "/v1/foods"
+            f"?query={query}&page={page + 1}&page_size={page_size}"
+        )
+
+    return PaginatedFoods(
+        total_count=total,
+        next_page=next_page,
+        items=items,
     )
 
-    return PaginatedFoods(total_count=total, next_page=next_page, items=items)
 
-
-@router.get("/foods/{food_id}/profile", response_model=FoodProfile)
-def get_food_profile(food_id: int):
-    """Return nutrient profile for a given food."""
+@router.get(
+    "/foods/{food_id}/profile",
+    response_model=FoodProfile,
+    summary="Return nutrient profile for a single food",
+)
+def get_food_profile(food_id: int) -> FoodProfile:
+    """Return full macro–, micro- and phytochemical profile for *food_id*."""
     food = next((f for f in FOODS if f["id"] == food_id), None)
     if not food:
         raise HTTPException(status_code=404, detail="Food not found")
 
-    return FoodProfile(id=food["id"], name=food["name"], nutrients=food["nutrients"])
+    return FoodProfile(
+        id=food["id"],
+        name=food["name"],
+        nutrients=food["nutrients"],
+    )
 
 
-@router.get("/compare", response_model=List[FoodProfile])
+@router.get(
+    "/compare",
+    response_model=List[FoodProfile],
+    summary="Compare up to 4 foods by id",
+)
 def compare_foods(
-    ids: str = Query(..., description="Comma-separated list of up to 4 ids")
-):
-    """Compare up to 4 foods by ID."""
+    ids: str = Query(..., description="Comma-separated list of up to 4 ids"),
+) -> List[FoodProfile]:
+    """Return side-by-side nutrient profiles for up to four foods."""
     id_list = [int(i) for i in ids.split(",") if i.strip().isdigit()][:4]
 
     profiles: list[FoodProfile] = []
-    for i in id_list:
-        food = next((f for f in FOODS if f["id"] == i), None)
+    for food_id in id_list:
+        food = next((f for f in FOODS if f["id"] == food_id), None)
         if food:
             profiles.append(
                 FoodProfile(
-                    id=food["id"], name=food["name"], nutrients=food["nutrients"]
+                    id=food["id"],
+                    name=food["name"],
+                    nutrients=food["nutrients"],
                 )
             )
 
