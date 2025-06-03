@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-import re
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
 from pydantic import BaseModel, Field, HttpUrl
 
@@ -12,7 +11,8 @@ class FoodSummary(BaseModel):
     id: int = Field(..., example=1)
     name: str = Field(..., example="Broccoli sprouts")
     thumbnail_url: Optional[HttpUrl] = Field(
-        None, example="https://cdn.nutrientapp.io/broccoli.jpg"
+        None,
+        example="https://cdn.nutrientapp.io/broccoli.jpg",
     )
 
 
@@ -22,17 +22,24 @@ class FoodProfile(BaseModel):
     id: int = Field(..., example=1)
     name: str = Field(..., example="Broccoli sprouts")
     macros: Dict[str, float] = Field(
-        ..., example={"protein_g": 3.5, "fat_g": 0.4, "carbs_g": 5.1}
+        ...,
+        example={"protein_g": 3.5, "fat_g": 0.4, "carbs_g": 5.1},
     )
     micronutrients: Dict[str, float] = Field(
-        ..., example={"vitamin_c_mg": 89.2, "iron_mg": 0.7}
+        ...,
+        example={"vitamin_c_mg": 89.2, "iron_mg": 0.7},
     )
     phytochemicals: Optional[Dict[str, float]] = Field(
-        None, example={"sulforaphane_mg": 73.1}
+        None,
+        example={"sulforaphane_mg": 73.1},
     )
-    citations: Dict[str, str] = Field(..., example={"vitamin_c_mg": "USDA FDC 2025"})
+    citations: Dict[str, str] = Field(
+        ...,
+        example={"vitamin_c_mg": "USDA FDC 2025"},
+    )
     confidence_interval: Optional[Tuple[float, float]] = Field(
-        None, example=(70.0, 76.0)
+        None,
+        example=(70.0, 76.0),
     )
 
 
@@ -42,7 +49,10 @@ class PaginatedFoods(BaseModel):
     total_count: int = Field(..., example=2)
     next_page: Optional[str] = Field(
         None,
-        example="https://api.nutrientapp.io/v1/foods?query=broccoli&page=2",
+        example=(
+            "https://api.nutrientapp.io/v1/foods?"
+            "query=broccoli&page=2"
+        ),
     )
     items: List[FoodSummary] = Field(
         ...,
@@ -51,9 +61,11 @@ class PaginatedFoods(BaseModel):
                 {
                     "id": 1,
                     "name": "Broccoli sprouts",
-                    "thumbnail_url": "https://cdn.nutrientapp.io/broccoli.jpg",
-                }
-            )
+                    "thumbnail_url": (
+                        "https://cdn.nutrientapp.io/broccoli.jpg"
+                    ),
+                },
+            ),
         ],
     )
 

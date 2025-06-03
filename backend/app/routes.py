@@ -42,11 +42,12 @@ WINDOW_SECONDS = 60
 
 
 def _check_rate_limit(request: Request) -> Dict[str, str]:
+    """Simple sliding-window IP rate-limiter."""
     ip = request.client.host if request.client else "anonymous"
     bucket = _rate_limit_store[ip]
     now = time.time()
 
-    # remove timestamps outside the sliding window
+    # Drop timestamps outside the 60-s window
     while bucket and now - bucket[0] > WINDOW_SECONDS:
         bucket.popleft()
 
@@ -75,7 +76,7 @@ QUERY_RE = re.compile(r"^[a-zA-Z0-9 \-]+$")
 
 
 class SortBy(str):
-    """Permitted sorting keys returned to the client."""
+    """Permitted sort keys returned to the client."""
 
     relevance = "relevance"
     calories = "calories"
@@ -96,7 +97,7 @@ class SortBy(str):
         429: {"model": ErrorResponse},
     },
 )
-async def search_foods(  # noqa: D401  (simple present docstring rule)
+async def search_foods(  # noqa: D401
     request: Request,
     response: Response,
     query: str = Query(..., min_length=2, max_length=60),
@@ -106,9 +107,9 @@ async def search_foods(  # noqa: D401  (simple present docstring rule)
     include_phytochemicals: bool = Query(True),
 ) -> PaginatedFoods:
     """
-    Simple substring match search against ``MOCK_FOODS``.
+    Search ``MOCK_FOODS`` with a naïve substring match.
 
-    Real implementation will call a database or Open Food Facts API.
+    A real implementation will query a DB or external API.
     """
     if not QUERY_RE.match(query):
         raise HTTPException(status_code=400, detail="Invalid characters in query")
@@ -126,13 +127,12 @@ async def search_foods(  # noqa: D401  (simple present docstring rule)
 
     next_page: str | None = None
     if end < total:
-        next_page = "/v1/foods" f"?query={query}&page={page + 1}&page_size={page_size}"
+        next_page = (
+            "/v1/foods?"
+            f"query={query}&page={page + 1}&page_size={page_size}"
+        )
 
-    return PaginatedFoods(
-        total_count=total,
-        next_page=next_page,
-        items=items,
-    )
+    return PaginatedFoods(total_count=total, next_page=next_page, items=items)
 
 
 @router.get(
@@ -141,7 +141,7 @@ async def search_foods(  # noqa: D401  (simple present docstring rule)
     summary="Return nutrient profile for a single food",
 )
 def get_food_profile(food_id: int) -> FoodProfile:
-    """Return full macro–, micro- and phytochemical profile for *food_id*."""
+    """Return macro, micro & phytochemical profile for *food_id*."""
     food = next((f for f in FOODS if f["id"] == food_id), None)
     if not food:
         raise HTTPException(status_code=404, detail="Food not found")
@@ -173,7 +173,7 @@ def compare_foods(
                     id=food["id"],
                     name=food["name"],
                     nutrients=food["nutrients"],
-                )
+                ),
             )
 
     if not profiles:
