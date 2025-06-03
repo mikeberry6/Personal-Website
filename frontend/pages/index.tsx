@@ -12,6 +12,7 @@ export default function Home() {
       console.error('Error searching foods');
       return;
     }
+
     const data = await res.json();
     setResults(data);
   };

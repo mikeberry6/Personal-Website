@@ -146,4 +146,3 @@ def get_food_profile(food_id: int):
 @router.get("/compare", response_model=List[FoodProfile], tags=["Foods"])
 def compare_foods(ids: str):
     """Compare up to 4 foods."""
-    return []

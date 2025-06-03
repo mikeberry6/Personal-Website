@@ -7,8 +7,8 @@ This repository contains a minimal skeleton implementing the core pieces of the 
 - `backend/` – FastAPI application exposing REST endpoints.
 - `frontend/` – Next.js application serving the user interface.
 
-Both projects are intentionally lightweight and include a tiny sample dataset so
-the application works out of the box.
+
+Both projects are intentionally lightweight and contain placeholder logic only.
 
 
 ## Getting Started
@@ -21,5 +21,6 @@ the application works out of the box.
    npm run dev
    ```
 
-The frontend expects the backend to be running locally on port 8000 by default.
-Set `NEXT_PUBLIC_API_URL` to override the API base URL if needed.
+
+The frontend expects the backend to be running on the same host.
+

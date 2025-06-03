@@ -1,16 +1,3 @@
-from fastapi.middleware.cors import CORSMiddleware
-origins = ["http://localhost:3000"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-from __future__ import annotations
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -42,9 +29,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 app.include_router(router)
 
 
+
 @app.get("/healthcheck", tags=["Meta"])
+
+
 def healthcheck():
     return {"status": "ok"}
