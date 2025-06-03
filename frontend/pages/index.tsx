@@ -4,8 +4,15 @@ export default function Home() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
   const search = async () => {
-    const res = await fetch(`/api/foods?query=${encodeURIComponent(query)}`);
+    const res = await fetch(`${apiUrl}/foods?query=${encodeURIComponent(query)}`);
+    if (!res.ok) {
+      console.error('Error searching foods');
+      return;
+    }
+
     const data = await res.json();
     setResults(data);
   };

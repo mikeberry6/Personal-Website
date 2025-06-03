@@ -7,7 +7,9 @@ This repository contains a minimal skeleton implementing the core pieces of the 
 - `backend/` – FastAPI application exposing REST endpoints.
 - `frontend/` – Next.js application serving the user interface.
 
+
 Both projects are intentionally lightweight and contain placeholder logic only.
+
 
 ## Getting Started
 
@@ -19,4 +21,6 @@ Both projects are intentionally lightweight and contain placeholder logic only.
    npm run dev
    ```
 
+
 The frontend expects the backend to be running on the same host.
+
