@@ -33,9 +33,6 @@ app.add_middleware(
 app.include_router(router)
 
 
-
 @app.get("/healthcheck", tags=["Meta"])
-
-
 def healthcheck():
     return {"status": "ok"}

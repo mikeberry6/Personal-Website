@@ -17,7 +17,9 @@ router = APIRouter(tags=["Foods"])
 # ──────────────────────────────
 MOCK_FOODS = [
     FoodSummary(id=1, name="Broccoli", thumbnail_url="https://example.com/broc.jpg"),
-    FoodSummary(id=2, name="Broccoli sprouts", thumbnail_url="https://example.com/brocs.jpg"),
+    FoodSummary(
+        id=2, name="Broccoli sprouts", thumbnail_url="https://example.com/brocs.jpg"
+    ),
     FoodSummary(id=3, name="Chia seed", thumbnail_url="https://example.com/chia.jpg"),
 ]
 
@@ -125,7 +127,9 @@ def get_food_profile(food_id: int):
 
 
 @router.get("/compare", response_model=List[FoodProfile])
-def compare_foods(ids: str = Query(..., description="Comma-separated list of up to 4 ids")):
+def compare_foods(
+    ids: str = Query(..., description="Comma-separated list of up to 4 ids")
+):
     """Compare up to 4 foods by ID."""
     id_list = [int(i) for i in ids.split(",") if i.strip().isdigit()][:4]
 
@@ -134,7 +138,9 @@ def compare_foods(ids: str = Query(..., description="Comma-separated list of up 
         food = next((f for f in FOODS if f["id"] == i), None)
         if food:
             profiles.append(
-                FoodProfile(id=food["id"], name=food["name"], nutrients=food["nutrients"])
+                FoodProfile(
+                    id=food["id"], name=food["name"], nutrients=food["nutrients"]
+                )
             )
 
     if not profiles:
