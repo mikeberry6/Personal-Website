@@ -1,12 +1,34 @@
-from __future__ import annotations
+from fastapi import APIRouter, HTTPException
+from .data import FOODS
 
-import re
-import time
-from collections import defaultdict, deque
-from typing import Deque, Dict, List
 
-from fastapi import APIRouter, HTTPException, Query, Request, Response
+    if not query:
+        raise HTTPException(status_code=400, detail="query is required")
+    q = query.lower()
+    results = [
+        FoodSummary(id=f["id"], name=f["name"], thumb_url=f.get("thumb_url"))
+        for f in FOODS
+        if q in f["name"].lower()
+    ]
+    return results
+    food = next((f for f in FOODS if f["id"] == food_id), None)
+    if not food:
+        raise HTTPException(status_code=404, detail="Food not found")
+    return FoodProfile(id=food["id"], name=food["name"], nutrients=food["nutrients"])
 
+    id_list = [int(i) for i in ids.split(",") if i.strip().isdigit()][:4]
+    profiles = []
+    for i in id_list:
+        food = next((f for f in FOODS if f["id"] == i), None)
+        if food:
+            profiles.append(
+                FoodProfile(
+                    id=food["id"], name=food["name"], nutrients=food["nutrients"]
+                )
+            )
+    if not profiles:
+        raise HTTPException(status_code=404, detail="No foods found")
+    return profiles
 from .schemas import ErrorResponse, FoodProfile, FoodSummary, PaginatedFoods
 
 router = APIRouter()

@@ -19,4 +19,5 @@ The API exposes endpoints described in the Product Requirements Document:
 - `GET /compare?ids=...`
 - `GET /healthcheck`
 
-All endpoints currently return placeholder data.
+For demonstration purposes the application ships with a small in-memory
+dataset. Searching and profile requests operate on this dataset only.
