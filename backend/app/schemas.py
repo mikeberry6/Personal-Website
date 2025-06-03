@@ -57,15 +57,15 @@ class PaginatedFoods(BaseModel):
     items: List[FoodSummary] = Field(
         ...,
         example=[
-            FoodSummary.model_validate(
+            FoodSummary.parse_obj(
                 {
                     "id": 1,
                     "name": "Broccoli sprouts",
                     "thumbnail_url": (
                         "https://cdn.nutrientapp.io/broccoli.jpg"
                     ),
-                },
-            ),
+                }
+            )
         ],
     )
 
