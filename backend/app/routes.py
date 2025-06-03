@@ -126,10 +126,7 @@ async def search_foods(  # noqa: D401  (simple present docstring rule)
 
     next_page: str | None = None
     if end < total:
-        next_page = (
-            "/v1/foods"
-            f"?query={query}&page={page + 1}&page_size={page_size}"
-        )
+        next_page = "/v1/foods" f"?query={query}&page={page + 1}&page_size={page_size}"
 
     return PaginatedFoods(
         total_count=total,
