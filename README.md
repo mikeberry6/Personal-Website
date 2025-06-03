@@ -21,6 +21,19 @@ Both projects are intentionally lightweight and contain placeholder logic only.
    npm run dev
    ```
 
+> **⚠ Offline CI / Codespaces**
+> The workspace that runs our automated tests has **no Internet access**.
+> Before running the Next.js frontend there you must provide `node_modules`
+> yourself:
+>
+> 1. Clone locally on a computer with Internet access  
+>    ```bash
+>    cd frontend
+>    npm ci           # or: npm install
+>    ```
+> 2. Zip the entire `frontend/node_modules` folder.
+> 3. Upload (or commit) that zip into the workspace.  
+>    Once unpacked, `npm run dev` works offline and CI passes.
 
 The frontend expects the backend to be running on the same host.
 
