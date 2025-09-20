@@ -1,0 +1,16 @@
+{
+  "name": "Acme",
+  "short_name": "Acme",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1020",
+  "theme_color": "#2563EB",
+  "description": "Purpose-built software that ships.",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "256x256"
+    }
+  ]
+}
