@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "locale": "es",
+    "title": "Acme",
+    "description": "Software especializado que entrega resultados."
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Equipo",
+    "pricing": "Precios",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "switchLocale": "View in English"
+  },
+  "hero": {
+    "badge": "Plataforma y servicios",
+    "heading": "Software diseñado para entregar",
+    "subheading": "Acme combina especialistas experimentados con herramientas modernas para que tu producto avance cada trimestre.",
+    "primaryCta": "Agenda una llamada",
+    "secondaryCta": "Conoce la plataforma",
+    "clients": "Equipos que confían en Acme"
+  },
+  "features": {
+    "title": "Entrega más rápido con control",
+    "description": "Alineamos estrategia, ejecución y medición en todo el ciclo de producto.",
+    "items": [
+      {
+        "name": "Plataforma unificada",
+        "description": "Conecta hojas de ruta, sprints e insights del cliente en un espacio seguro.",
+        "icon": "Rocket"
+      },
+      {
+        "name": "Flujos adaptables",
+        "description": "Automatiza la gobernanza y da autonomía responsable a tus equipos.",
+        "icon": "GitBranch"
+      },
+      {
+        "name": "Analítica accionable",
+        "description": "Sigue el valor entregado con paneles en tiempo real y pronósticos predictivos.",
+        "icon": "BarChart3"
+      },
+      {
+        "name": "Confianza empresarial",
+        "description": "Arquitectura zero-trust, trazabilidad y cumplimiento desde el primer día.",
+        "icon": "ShieldCheck"
+      }
+    ]
+  },
+  "logos": {
+    "label": "Equipos globales confían en nosotros",
+    "items": [
+      "Vanta",
+      "Linear",
+      "Stripe",
+      "Figma",
+      "Ramp"
+    ]
+  },
+  "testimonials": {
+    "title": "Líderes de producto nos recomiendan",
+    "items": [
+      {
+        "quote": "Acme conecta nuestra hoja de ruta con los resultados. Volvimos a entregar con previsibilidad.",
+        "author": "Lena Ortiz",
+        "role": "VP de Producto, Northwind"
+      },
+      {
+        "quote": "La automatización ahorra horas cada semana y brinda la visibilidad que exige la dirección.",
+        "author": "Marcus Chen",
+        "role": "Director de Entrega, Globex"
+      },
+      {
+        "quote": "Las revisiones de seguridad ahora viven en el flujo de trabajo. El equipo duerme mejor.",
+        "author": "Priya Singh",
+        "role": "CTO, Inertia Labs"
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para acelerar tu hoja de ruta?",
+    "description": "Conecta con Acme para lanzar iniciativas estratégicas sin desgastar a tu equipo.",
+    "primary": "Agenda una consultoría",
+    "secondary": "Descarga la ficha de producto"
+  },
+  "pricing": {
+    "title": "Precios predecibles para cada etapa",
+    "subtitle": "Los planes anuales incluyen implementación, habilitación y asesoría continua.",
+    "plans": [
+      {
+        "name": "Launch",
+        "price": "$49",
+        "period": "por usuario / mes",
+        "description": "Para startups que estandarizan la entrega entre escuadras.",
+        "cta": "Empezar prueba",
+        "features": [
+          "Workspaces ilimitados",
+          "Notas de lanzamiento automáticas",
+          "Portal de feedback integrado",
+          "Controles SOC 2 Type II"
+        ]
+      },
+      {
+        "name": "Scale",
+        "price": "$99",
+        "period": "por usuario / mes",
+        "description": "Para equipos en rápido crecimiento con carteras complejas.",
+        "cta": "Habla con ventas",
+        "featured": true,
+        "features": [
+          "Paneles de salud de portafolio",
+          "Resúmenes de estado con IA",
+          "Políticas de acceso avanzadas",
+          "Gerente de éxito dedicado"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": "A medida",
+        "period": "contáctanos",
+        "description": "Para empresas globales que requieren flujos y controles personalizados.",
+        "cta": "Solicita propuesta",
+        "features": [
+          "Nube privada o on-premise",
+          "Cumplimiento para industrias reguladas",
+          "Onboarding con acompañamiento",
+          "Revisiones ejecutivas trimestrales"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "¿Cuánto tarda la implementación?",
+        "answer": "Los equipos suelen lanzar en 14 días con configuración guiada y capacitación."
+      },
+      {
+        "question": "¿Soportan modelos híbridos?",
+        "answer": "Sí. Acme conecta cadencias ágiles, waterfall y OKR con gobernanza compartida."
+      },
+      {
+        "question": "¿Existe un mínimo de contrato?",
+        "answer": "Launch inicia con 10 licencias. Scale y Enterprise se adaptan a tu modelo operativo."
+      },
+      {
+        "question": "¿Pueden migrar datos históricos?",
+        "answer": "Nuestro equipo te ayuda a importar issues, artefactos y runbooks de forma segura."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Construyamos tu próximo lanzamiento",
+    "subtitle": "Cuéntanos sobre tu equipo y objetivos. Responderemos en un día hábil.",
+    "success": "Gracias por escribirnos. Te contactaremos muy pronto.",
+    "error": "Ocurrió un error. Intenta nuevamente o escribe a support@acme.com.",
+    "fields": {
+      "name": "Nombre completo",
+      "email": "Correo corporativo",
+      "message": "¿Qué debemos saber?",
+      "honeypot": "Sitio web"
+    },
+    "submit": "Enviar mensaje",
+    "required": "* campos obligatorios"
+  }
+}

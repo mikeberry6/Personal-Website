@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "locale": "en",
+    "title": "Acme",
+    "description": "Purpose-built software that ships."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "switchLocale": "Ver en español"
+  },
+  "hero": {
+    "badge": "Platform & Services",
+    "heading": "Purpose-built software that ships",
+    "subheading": "Acme pairs battle-tested experts with modern tooling so product teams deliver momentum every quarter.",
+    "primaryCta": "Book a strategy call",
+    "secondaryCta": "Explore our platform",
+    "clients": "Teams shipping with Acme"
+  },
+  "features": {
+    "title": "Ship faster with confidence",
+    "description": "We align strategy, execution, and measurement across the entire product lifecycle.",
+    "items": [
+      {
+        "name": "Unified delivery platform",
+        "description": "Connect roadmaps, sprints, and customer insights in one secure workspace.",
+        "icon": "Rocket"
+      },
+      {
+        "name": "Adaptive workflows",
+        "description": "Automate governance while giving teams the autonomy to experiment responsibly.",
+        "icon": "GitBranch"
+      },
+      {
+        "name": "Insightful analytics",
+        "description": "Track value shipped with real-time dashboards and predictive forecasting.",
+        "icon": "BarChart3"
+      },
+      {
+        "name": "Enterprise-grade trust",
+        "description": "Rely on zero-trust architecture, audit trails, and compliance ready out of the box.",
+        "icon": "ShieldCheck"
+      }
+    ]
+  },
+  "logos": {
+    "label": "Trusted by teams worldwide",
+    "items": [
+      "Vanta",
+      "Linear",
+      "Stripe",
+      "Figma",
+      "Ramp"
+    ]
+  },
+  "testimonials": {
+    "title": "Trusted by product leaders",
+    "items": [
+      {
+        "quote": "Acme keeps our roadmap connected to outcomes. Shipping feels predictable again.",
+        "author": "Lena Ortiz",
+        "role": "VP Product, Northwind"
+      },
+      {
+        "quote": "The automation saves my team hours every week and gives execs the visibility they expect.",
+        "author": "Marcus Chen",
+        "role": "Director of Delivery, Globex"
+      },
+      {
+        "quote": "Security reviews used to take weeks. With Acme they are part of the workflow by default.",
+        "author": "Priya Singh",
+        "role": "CTO, Inertia Labs"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to accelerate your roadmap?",
+    "description": "Partner with Acme to launch strategic initiatives on schedule without burning out your teams.",
+    "primary": "Schedule a consultation",
+    "secondary": "Download the product brief"
+  },
+  "pricing": {
+    "title": "Predictable pricing for every growth stage",
+    "subtitle": "Annual commitments include onboarding, enablement, and success coaching.",
+    "plans": [
+      {
+        "name": "Launch",
+        "price": "$49",
+        "period": "per user / month",
+        "description": "For startups standardizing delivery across squads.",
+        "cta": "Start trial",
+        "features": [
+          "Unlimited workspaces",
+          "Automated release notes",
+          "In-app feedback portal",
+          "SOC 2 Type II controls"
+        ]
+      },
+      {
+        "name": "Scale",
+        "price": "$99",
+        "period": "per user / month",
+        "description": "For high-growth teams orchestrating complex portfolios.",
+        "cta": "Talk to sales",
+        "featured": true,
+        "features": [
+          "Portfolio health dashboards",
+          "AI status briefings",
+          "Advanced access policies",
+          "Dedicated success manager"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "period": "contact us",
+        "description": "For global enterprises needing bespoke workflows and controls.",
+        "cta": "Request proposal",
+        "features": [
+          "Private cloud or on-prem",
+          "Regulated industry compliance",
+          "White-glove onboarding",
+          "Executive business reviews"
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "How long does onboarding take?",
+        "answer": "Teams typically launch within 14 days with guided configuration and training."
+      },
+      {
+        "question": "Do you support hybrid delivery models?",
+        "answer": "Yes. Acme connects agile, waterfall, and OKR cadences with shared governance."
+      },
+      {
+        "question": "Is there a minimum contract size?",
+        "answer": "Launch starts at 10 seats. Scale and Enterprise are customized to your operating model."
+      },
+      {
+        "question": "Can we migrate historical data?",
+        "answer": "Our migration team assists with importing issues, artifacts, and runbooks securely."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let’s build your next release",
+    "subtitle": "Share a bit about your team and goals. We’ll follow up within one business day.",
+    "success": "Thanks for reaching out — our team will connect shortly.",
+    "error": "Something went wrong. Please try again or email support@acme.com.",
+    "fields": {
+      "name": "Full name",
+      "email": "Work email",
+      "message": "What should we know?",
+      "honeypot": "Company website"
+    },
+    "submit": "Send message",
+    "required": "* indicates required field"
+  }
+}

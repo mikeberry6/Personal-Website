@@ -1,0 +1,42 @@
+---
+title: "Instrumenting product health in real time"
+date: "2024-04-03"
+excerpt: "A framework for bringing engineering, product, and customer signals together without drowning in dashboards."
+tags:
+  - analytics
+  - product
+cover: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+---
+
+## Choose leading indicators
+
+Most teams react to lagging data: NPS trends, quarterly churn, or support escalations. Those matter, but they arrive too late to inform day-to-day decisions. Start by defining 3–5 leading indicators that signal product health weekly.
+
+We encourage teams to focus on:
+
+- **Adoption** – How many active accounts used the feature in the last 7 days?
+- **Depth** – How often does the target persona complete the key workflow?
+- **Quality** – Are we introducing regressions or latency that impacts users?
+
+## Automate the instrumentation
+
+Manual reports quickly drift. Instrument your platform so signals update automatically. For event data, document the schema and owners for each track call. For engineering quality, connect CI pipelines and incident management tools. Use human-in-the-loop reviews only for qualitative insights that cannot be automated.
+
+## Tell a cohesive story
+
+Dashboards are table stakes. The differentiator is narrative. Each week, product and engineering leads should publish a brief that explains what changed, why it matters, and what actions they will take. This keeps stakeholders aligned and prevents analytics sprawl.
+
+```ts
+const report = {
+  feature: 'Scenario planning',
+  adoption: upBy(12),
+  depth: steady(),
+  quality: improving({ incidents: 0, latency: '-8%' }),
+};
+```
+
+## Operationalize the insights
+
+Data is only useful when it drives action. Tie your health metrics to investment decisions. If adoption dips, revisit enablement. If quality lags, reallocate capacity to reliability work. When health holds steady, move confidently toward the next strategic bet.
+
+The result is a culture where teams stay close to the customer, and executives trust the product engine to make informed trade-offs.
