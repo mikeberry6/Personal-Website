@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Infrastructure Fund Analysis',
-  description: 'Infrastructure fund strategy and subsector overlap analysis'
+  title: 'Personal Website',
+  description: 'Personal website'
 };
 
 function ThemeScript() {
