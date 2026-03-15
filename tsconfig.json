@@ -18,15 +18,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": [
-      "vitest/globals",
-      "@testing-library/jest-dom"
-    ],
+    "types": [],
     "paths": {
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -36,9 +38,8 @@
     "**/*.mjs",
     "**/*.cts",
     "**/*.mts",
-    "next.config.ts",
-    "playwright.config.ts",
-    "vitest.config.ts"
+    "next.config.mjs",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
