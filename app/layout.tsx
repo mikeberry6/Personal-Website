@@ -1,18 +1,14 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { headers } from 'next/headers';
 import type { ReactNode } from 'react';
 
-import { Analytics } from '@/lib/analytics';
-import { defaultMetadata } from '@/lib/seo';
+export const metadata: Metadata = {
+  title: 'Infrastructure Fund Analysis',
+  description: 'Infrastructure fund strategy and subsector overlap analysis'
+};
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' });
-
-export const metadata: Metadata = defaultMetadata;
-
-function ThemeScript({ nonce }: { nonce?: string }) {
+function ThemeScript() {
   const script = `(() => {
   const storageKey = 'theme';
   const root = document.documentElement;
@@ -28,29 +24,22 @@ function ThemeScript({ nonce }: { nonce?: string }) {
   }
 })();`;
 
-  return <script nonce={nonce} dangerouslySetInnerHTML={{ __html: script }} />;
+  return <script dangerouslySetInnerHTML={{ __html: script }} />;
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const nonce = headers().get('x-csp-nonce') ?? undefined;
-
   return (
     <html
       lang="en"
       data-theme="light"
-      className={`${inter.variable} antialiased`}
+      className="antialiased"
       suppressHydrationWarning
     >
       <head>
-        <link rel="icon" href="/favicon.svg" />
-        <ThemeScript nonce={nonce} />
+        <ThemeScript />
       </head>
       <body className="min-h-screen bg-background text-foreground">
-        <a className="skip-link" href="#main">
-          Skip to main content
-        </a>
         {children}
-        <Analytics />
       </body>
     </html>
   );
