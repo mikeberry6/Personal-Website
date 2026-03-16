@@ -2,6 +2,7 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import AuthGate from './auth-gate';
 
 export const metadata: Metadata = {
   title: 'Personal Website',
@@ -39,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ThemeScript />
       </head>
       <body className="min-h-screen bg-background text-foreground">
-        {children}
+        <AuthGate>{children}</AuthGate>
       </body>
     </html>
   );
