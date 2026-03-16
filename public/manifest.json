@@ -1,11 +1,11 @@
 {
-  "name": "Acme",
-  "short_name": "Acme",
+  "name": "Personal Website",
+  "short_name": "Site",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0B1020",
   "theme_color": "#2563EB",
-  "description": "Purpose-built software that ships.",
+  "description": "Personal website",
   "icons": [
     {
       "src": "/icon.svg",
