@@ -82,6 +82,43 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* Product Spotlight */}
+      <section className="mt-16">
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">
+          Product Spotlight
+        </h2>
+        <h3 className="mt-3 text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+          LP Appetite Has Returned, But Infrastructure Fundraising Is Becoming A
+          Barbell Market
+        </h3>
+        <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed">
+          <p>
+            Infrastructure has firmly established itself as the most resilient
+            private market asset class, recently crossing $1.6 trillion in global
+            AUM following a record $211 billion fundraising year in 2025.
+            Propelled by massive secular mandates—including the $106 trillion
+            needed globally by 2040 for decarbonization and digital
+            buildouts—limited partners have decisively increased their
+            infrastructure allocations. The fundraising landscape is currently
+            defined by a flight to scale and a pursuit of operational alpha.
+            Nearly three-quarters of all new capital flowed to the top 50
+            mega-funds, while approximately 70% of raised funds targeted
+            Core-Plus and Value-Added strategies. Investors are clearly willing
+            to move up the risk curve to secure higher, inflation-protected
+            yields, according to recent BCG data.
+          </p>
+          <p>
+            The product pipeline into mid-2026 appears exceptionally strong,
+            supported by innovative fund structures. To accommodate lengthening
+            capital cycles and the complex operational requirements of
+            value-added assets, open-ended funds now comprise roughly 10% of the
+            market, while average hold periods have increased to 7.6 years.
+            Smooth execution for upcoming vintages will depend on sponsors
+            demonstrating clear margin-expansion capabilities.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
