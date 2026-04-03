@@ -9,12 +9,28 @@ export default function HomePage() {
         "Provider of sustainable water management solutions, specializing in post-construction stormwater management, wastewater management, and water quality testing services.",
     },
     {
+      company: "Ardurra",
+      subsector: "Services",
+      owner: "Littlejohn & Co.",
+      year: "2023",
+      description:
+        "Engineering and consulting firm providing complex design, planning, and construction management services for water, transportation, and municipal public works projects.",
+    },
+    {
       company: "Axia Water",
       subsector: "Services",
       owner: "Alpine Investors / AlpineX",
       year: "2023",
       description:
         "Pure-play water services platform, organized as a dedicated water services vertical inside AlpineX.",
+    },
+    {
+      company: "Axius Water",
+      subsector: "Downstream",
+      owner: "KKR / XPV Water Partners",
+      year: "2019",
+      description:
+        "Platform focused on providing diversified, end-to-end nutrient removal solutions for municipal and industrial wastewater treatment facilities.",
     },
     {
       company: "Blackbuck Resources",
@@ -25,12 +41,36 @@ export default function HomePage() {
         "Oilfield water management solutions provider focused on creating practical, effective, and economical infrastructure, disposal, and treatment applications.",
     },
     {
+      company: "CITCO Water",
+      subsector: "Downstream",
+      owner: "Trivest Partners",
+      year: "2023",
+      description:
+        "Value-added distributor of chemicals, pipes, valves, smart meters, and engineered products to small and mid-sized municipalities and waterworks contractors.",
+    },
+    {
+      company: "Clean Water Environmental Services",
+      subsector: "Services",
+      owner: "Rockwood Equity Partners",
+      year: "2020",
+      description:
+        "Provider of environmental services specializing in industrial wastewater treatment, disposal, and hazardous waste management.",
+    },
+    {
       company: "cleanwater1 (formerly UGSI Solutions)",
       subsector: "Downstream",
       owner: "Baird Capital",
       year: "2022",
       description:
         "Pure-play water and wastewater quality and disinfection solutions platform for municipal and industrial markets.",
+    },
+    {
+      company: "CRB Water",
+      subsector: "Downstream",
+      owner: "AEA Investors",
+      year: "2023",
+      description:
+        "Full-service provider of industrial and biological water and wastewater treatment products, chemicals, and programs to commercial and institutional markets.",
     },
     {
       company: "Dragonfly Pond Works",
@@ -105,6 +145,22 @@ export default function HomePage() {
         "Oilfield water midstream services company focused on full-cycle water supply, gathering, disposal, recycling, and infrastructure for the energy sector.",
     },
     {
+      company: "StormTrap",
+      subsector: "Services",
+      owner: "PSP Capital",
+      year: "2022",
+      description:
+        "Provider of stormwater management solutions, designing systems that control the volume and discharge timing of runoff and remove pollutants.",
+    },
+    {
+      company: "The Rapid Group",
+      subsector: "Services",
+      owner: "Hidden Harbor Capital Partners",
+      year: "2023",
+      description:
+        "Facility services provider specializing in pump, motor, and related repair, maintenance, and installation services for water and wastewater applications.",
+    },
+    {
       company: "USA Water",
       subsector: "Services",
       owner: "Levine Leichtman Capital Partners",
@@ -135,6 +191,22 @@ export default function HomePage() {
       year: "2023",
       description:
         "Global leader in trenchless water and sewer infrastructure solutions, offering turnkey rehabilitation technologies including liners, coatings, robotics, and related renewal services.",
+    },
+    {
+      company: "WaterFleet",
+      subsector: "Services",
+      owner: "EagleTree Capital",
+      year: "2017",
+      description:
+        "Provider of mobile water and wastewater treatment solutions, operating a technology-as-a-service platform for industrial and commercial customers.",
+    },
+    {
+      company: "ZwitterCo",
+      subsector: "Downstream",
+      owner: "Evok Innovations / DCVC",
+      year: "2024",
+      description:
+        "Advanced membrane technologies provider transforming water treatment to unlock unconventional water sources like industrial wastewaters.",
     },
   ];
 
