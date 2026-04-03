@@ -10,6 +10,21 @@
   --color-border: rgba(11, 16, 32, 0.08);
   --color-primary: #2563eb;
   --color-secondary: #0b1020;
+
+  /* Subsector badge colors */
+  --color-badge-services-bg: #dbeafe;
+  --color-badge-services-fg: #1e40af;
+  --color-badge-downstream-bg: #d1fae5;
+  --color-badge-downstream-fg: #065f46;
+  --color-badge-midstream-bg: #fef3c7;
+  --color-badge-midstream-fg: #92400e;
+  --color-badge-btm-bg: #ede9fe;
+  --color-badge-btm-fg: #5b21b6;
+
+  /* Card surface */
+  --color-card-bg: #ffffff;
+  --color-card-shadow: rgba(0, 0, 0, 0.06);
+  --color-card-hover-shadow: rgba(0, 0, 0, 0.12);
 }
 
 [data-theme='dark'] {
@@ -20,8 +35,29 @@
   --color-border: rgba(248, 250, 252, 0.12);
   --color-primary: #2563eb;
   --color-secondary: #1f2937;
+
+  --color-badge-services-bg: rgba(37, 99, 235, 0.2);
+  --color-badge-services-fg: #93bbfd;
+  --color-badge-downstream-bg: rgba(16, 185, 129, 0.2);
+  --color-badge-downstream-fg: #6ee7b7;
+  --color-badge-midstream-bg: rgba(245, 158, 11, 0.2);
+  --color-badge-midstream-fg: #fcd34d;
+  --color-badge-btm-bg: rgba(139, 92, 246, 0.2);
+  --color-badge-btm-fg: #c4b5fd;
+
+  --color-card-bg: #141a2e;
+  --color-card-shadow: rgba(0, 0, 0, 0.3);
+  --color-card-hover-shadow: rgba(0, 0, 0, 0.5);
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.card-shadow {
+  box-shadow: 0 1px 3px var(--color-card-shadow);
+  transition: box-shadow 0.2s ease;
+}
+.card-shadow:hover {
+  box-shadow: 0 4px 12px var(--color-card-hover-shadow);
 }

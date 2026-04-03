@@ -1,3 +1,10 @@
+const subsectorStyles: Record<string, { bg: string; fg: string; label: string }> = {
+  Services: { bg: 'var(--color-badge-services-bg)', fg: 'var(--color-badge-services-fg)', label: 'Services' },
+  Downstream: { bg: 'var(--color-badge-downstream-bg)', fg: 'var(--color-badge-downstream-fg)', label: 'Downstream' },
+  Midstream: { bg: 'var(--color-badge-midstream-bg)', fg: 'var(--color-badge-midstream-fg)', label: 'Midstream' },
+  'Behind-the-meter': { bg: 'var(--color-badge-btm-bg)', fg: 'var(--color-badge-btm-fg)', label: 'Behind-the-meter' },
+};
+
 export default function HomePage() {
   const companies = [
     {
@@ -212,52 +219,47 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-16">
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-sm">
-          <thead>
-            <tr className="border-b border-foreground/20">
-              <th className="px-4 py-3 text-left font-semibold text-foreground">
-                Company
-              </th>
-              <th className="px-4 py-3 text-left font-semibold text-foreground">
-                Subsector
-              </th>
-              <th className="px-4 py-3 text-left font-semibold text-foreground">
-                Owner / Sponsor
-              </th>
-              <th className="px-4 py-3 text-left font-semibold text-foreground">
-                Year Invested
-              </th>
-              <th className="px-4 py-3 text-left font-semibold text-foreground">
-                Description of Business
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {companies.map((row) => (
-              <tr
-                key={row.company}
-                className="border-b border-foreground/10 hover:bg-foreground/5"
+      <div className="mb-10">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">
+          Portfolio Companies
+        </h1>
+        <p className="mt-2 text-base text-muted">
+          {companies.length} water infrastructure companies across the value chain
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {companies.map((row) => {
+          const badge = subsectorStyles[row.subsector];
+          return (
+            <div
+              key={row.company}
+              className="card-shadow flex flex-col rounded-xl border border-border p-5"
+              style={{ backgroundColor: 'var(--color-card-bg)' }}
+            >
+              <span
+                className="mb-3 inline-flex w-fit items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
+                style={{ backgroundColor: badge.bg, color: badge.fg }}
               >
-                <td className="px-4 py-3 font-medium text-foreground whitespace-nowrap">
-                  {row.company}
-                </td>
-                <td className="px-4 py-3 text-foreground/80 whitespace-nowrap">
-                  {row.subsector}
-                </td>
-                <td className="px-4 py-3 text-foreground/80 whitespace-nowrap">
-                  {row.owner}
-                </td>
-                <td className="px-4 py-3 text-foreground/80 whitespace-nowrap">
-                  {row.year}
-                </td>
-                <td className="px-4 py-3 text-foreground/80">
-                  {row.description}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                {badge.label}
+              </span>
+
+              <h2 className="text-lg font-semibold leading-snug text-foreground">
+                {row.company}
+              </h2>
+
+              <div className="mt-1.5 flex flex-wrap items-center gap-x-3 text-sm text-muted">
+                <span>{row.owner}</span>
+                <span className="text-border">|</span>
+                <span>{row.year}</span>
+              </div>
+
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                {row.description}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
