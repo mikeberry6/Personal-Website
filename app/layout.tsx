@@ -5,8 +5,8 @@ import type { ReactNode } from 'react';
 import AuthGate from './auth-gate';
 
 export const metadata: Metadata = {
-  title: 'Personal Website',
-  description: 'Personal website'
+  title: 'The North American Water Technology Sector',
+  description: 'Sector summary of the North American water technology landscape'
 };
 
 function ThemeScript() {
