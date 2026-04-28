@@ -5,9 +5,15 @@ type SectorRow = {
   subsectors: string[];
 };
 
+type Company = {
+  name: string;
+  bracket: string;
+};
+
 type SubsectorMap = {
   sector: string;
-  subsectors: { name: string; companies: string[] }[];
+  subsectors: { name: string; companies: Company[] }[];
+  sourcesNote?: string;
 };
 
 const detailedSectors: SectorRow[] = [
@@ -181,69 +187,244 @@ const slideSectors: SectorRow[] = [
 const subsectorMap: SubsectorMap[] = [
   {
     sector: "Utility Grid & Digital Water",
+    sourcesNote:
+      "Utility-grid financing sources include company / investor announcements for FIDO AI, VODA.ai, Olea, SewerAI, 120Water, Waterplan, Transcend, and Klir; Aquasight appears commercial-stage, but I did not find a disclosed institutional round.",
     subsectors: [
-      { name: "Leakage & Network Intelligence", companies: ["FIDO AI", "VODA.ai"] },
-      { name: "Pipe / Sewer Inspection", companies: ["SewerAI"] },
+      {
+        name: "Leakage & Network Intelligence",
+        companies: [
+          { name: "FIDO AI", bracket: "Series B: N/D | CRH Ventures" },
+          { name: "VODA.ai", bracket: "Series A: N/D | CRH Ventures" },
+          {
+            name: "Olea Edge Analytics",
+            bracket: "Series C: $35.0mm | Insight Partners",
+          },
+          { name: "Aquasight", bracket: "Private: N/D | N/D" },
+        ],
+      },
+      {
+        name: "Pipe / Sewer Inspection",
+        companies: [
+          { name: "SewerAI", bracket: "Series B: $15.0mm | Innovius Capital" },
+        ],
+      },
       {
         name: "Compliance, Planning & Digital Workflows",
-        companies: ["120Water", "Waterplan", "Transcend"],
+        companies: [
+          { name: "120Water", bracket: "Growth: $43.0mm | Edison Partners" },
+          { name: "Waterplan", bracket: "Series A: $11.0mm | Base10 Partners" },
+          { name: "Transcend", bracket: "Series B: $20.0mm | Autodesk" },
+          { name: "Klir", bracket: "Series B: $10.0mm | Insight Partners" },
+        ],
       },
     ],
   },
   {
     sector: "Industrial Water Treatment & Reuse",
+    sourcesNote:
+      "Industrial-water sources include Gradiant, Moleaer, Cambrian, ZwitterCo, Membrion, Via Separations, Aqua Membranes, Capture6, Aquafortus, ElectraMet, and Saltworks commercial updates; Saltworks does not appear to have a clearly disclosed venture round.",
     subsectors: [
-      { name: "Industrial Reuse Platforms", companies: ["Gradiant", "Moleaer"] },
+      {
+        name: "Industrial Reuse Platforms",
+        companies: [
+          { name: "Gradiant", bracket: "Series D: $225.0mm | BoltRock Holdings" },
+          { name: "Moleaer", bracket: "Series C: $40.0mm | Apollo" },
+          {
+            name: "Cambrian Innovation",
+            bracket: "Credit Facility: $150.0mm | ING Capital",
+          },
+          { name: "Saltworks Technologies", bracket: "Private: N/D | N/D" },
+        ],
+      },
       {
         name: "Membranes & Separations",
-        companies: ["ZwitterCo", "Membrion", "Via Separations"],
+        companies: [
+          { name: "ZwitterCo", bracket: "Series B: $58.4mm | Evok Innovations" },
+          { name: "Membrion", bracket: "Series B1: $20.0mm | Pangaea Ventures" },
+          { name: "Via Separations", bracket: "Series B: $38.0mm | NGP ETP" },
+          {
+            name: "Aqua Membranes",
+            bracket: "Series B: N/D | Burnt Island Ventures",
+          },
+        ],
       },
-      { name: "Brine & Resource Recovery", companies: ["Capture6", "Aquafortus"] },
+      {
+        name: "Brine & Resource Recovery",
+        companies: [
+          {
+            name: "Capture6",
+            bracket: "Series A + project funding: $27.5mm | Tetrad Corp.",
+          },
+          { name: "Aquafortus", bracket: "Series A1: $17.0mm | DCVC" },
+          {
+            name: "ElectraMet",
+            bracket: "Series C: $10.0mm | Veriten / NexTen",
+          },
+        ],
+      },
     ],
   },
   {
     sector: "Contaminants, PFAS & Water Quality",
+    sourcesNote:
+      "PFAS / water-quality sources include Puraffinity, Cyclopure / Kurita, EPOC / SAFF distribution via Allonnia, Aclarity, Allonnia, Claros, Revive, Aquagga, KETOS, and Kando.",
     subsectors: [
-      { name: "PFAS Capture", companies: ["Puraffinity"] },
+      {
+        name: "PFAS Capture",
+        companies: [
+          { name: "Puraffinity", bracket: "Series A: $13.9mm | Octopus Ventures" },
+          { name: "Cyclopure", bracket: "Strategic Investment: N/D | Kurita" },
+          { name: "EPOC Enviro / SAFF", bracket: "Private: N/D | N/D" },
+        ],
+      },
       {
         name: "PFAS Destruction & Remediation",
-        companies: ["Aclarity", "Allonnia", "Claros Technologies"],
+        companies: [
+          { name: "Aclarity", bracket: "Series A: $15.9mm | Aqualateral" },
+          {
+            name: "Allonnia",
+            bracket: "Series A Extension: >$20.0mm | Viking Global Investors",
+          },
+          {
+            name: "Claros Technologies",
+            bracket: "Growth: $22.0mm | Ecosystem Integrity Fund",
+          },
+          {
+            name: "Revive Environmental",
+            bracket: "Spinout / JV: N/D | Viking Global Investors",
+          },
+          {
+            name: "Aquagga",
+            bracket: "Grant-backed / non-dilutive: N/D | U.S. DoD",
+          },
+        ],
       },
-      { name: "Water Quality Monitoring", companies: ["KETOS"] },
+      {
+        name: "Water Quality Monitoring",
+        companies: [
+          { name: "KETOS", bracket: "Equity Growth: $10.0mm | Tenfore Holdings" },
+          { name: "Kando", bracket: "Growth: $10.0mm | DC Thomson" },
+        ],
+      },
     ],
   },
   {
     sector: "Behind-the-Meter Efficiency & Distributed Reuse",
+    sourcesNote:
+      "Behind-the-meter sources include WINT, APANA, Epic Cleantec, Hydraloop, Greyter, and Infinite Cooling.",
     subsectors: [
-      { name: "Building Water Efficiency", companies: ["WINT"] },
+      {
+        name: "Building Water Efficiency",
+        companies: [
+          { name: "WINT", bracket: "Series C: $35.0mm | Inven Capital" },
+          { name: "APANA", bracket: "Series B: $11.0mm | Kurita Water Industries" },
+        ],
+      },
       {
         name: "Onsite Reuse & Greywater",
-        companies: ["Epic Cleantec", "Hydraloop", "Greyter"],
+        companies: [
+          {
+            name: "Epic Cleantec",
+            bracket: "Series B: $12.0mm | Fields / Rayant FO",
+          },
+          { name: "Hydraloop", bracket: "Series B: €10.5mm | Invest-NL" },
+          { name: "Greyter", bracket: "Series B: $10.0mm | Ferguson Ventures" },
+        ],
+      },
+      {
+        name: "Cooling Water Recovery",
+        companies: [
+          {
+            name: "Infinite Cooling",
+            bracket: "Series A: $12.25mm | Material Impact",
+          },
+        ],
       },
     ],
   },
   {
     sector: "Agricultural Water & Irrigation",
+    sourcesNote:
+      "Ag-water sources include CropX, Kilimo, SupPlant, N-Drip, Lumo, Arable, and Hydrosat.",
     subsectors: [
-      { name: "Irrigation Intelligence", companies: ["CropX", "Kilimo"] },
-      { name: "Precision Irrigation Hardware", companies: ["N-Drip"] },
-      { name: "Field & Water-Stress Data", companies: ["Arable", "Hydrosat"] },
+      {
+        name: "Irrigation Intelligence",
+        companies: [
+          { name: "CropX", bracket: "Series C: $30.0mm | Aliaxis" },
+          {
+            name: "Kilimo",
+            bracket: "Series A: $7.5mm | Emerald Technology Ventures",
+          },
+          { name: "SupPlant", bracket: "Series A: $27.0mm | Red Dot Capital" },
+        ],
+      },
+      {
+        name: "Precision Irrigation Hardware",
+        companies: [
+          { name: "N-Drip", bracket: "Series C: $44.0mm | Liechtenstein Group" },
+          {
+            name: "Lumo",
+            bracket: "Venture Round: $7.0mm | Active Impact Investments",
+          },
+        ],
+      },
+      {
+        name: "Field & Water-Stress Data",
+        companies: [
+          {
+            name: "Arable",
+            bracket: "Series C: $40.0mm | Galvanize Climate Solutions",
+          },
+          { name: "Hydrosat", bracket: "Series B: $60.0mm | Hartree Partners" },
+        ],
+      },
     ],
   },
   {
     sector: "Climate Resilience & Alternative Supply",
+    sourcesNote:
+      "Climate-resilience and alternative-supply sources include Flocean, Oneka, Previsico, Floodbase, and StormHarvester.",
     subsectors: [
       {
         name: "Alternative Water Supply",
-        companies: ["Flocean", "Oneka Technologies"],
+        companies: [
+          { name: "Flocean", bracket: "Series A Extension: $22.5mm | Xylem" },
+          {
+            name: "Oneka Technologies",
+            bracket: "Series A: C$12.5mm | Hoffecker Family",
+          },
+        ],
       },
       {
         name: "Flood & Stormwater Intelligence",
-        companies: ["Previsico", "Floodbase", "StormHarvester"],
+        companies: [
+          {
+            name: "Previsico",
+            bracket: "Series A: N/D | Connecticut Innovations",
+          },
+          { name: "Floodbase", bracket: "Series A: $12.0mm | Lowercarbon Capital" },
+          {
+            name: "StormHarvester",
+            bracket: "Series A: £8.4mm | YFM Equity Partners",
+          },
+        ],
       },
     ],
   },
 ];
+
+function CompanyList({ companies }: { companies: Company[] }) {
+  return (
+    <ul className="space-y-1.5">
+      {companies.map((c) => (
+        <li key={c.name} className="leading-snug">
+          <span className="font-medium text-foreground">{c.name}</span>{" "}
+          <span className="text-muted">[{c.bracket}]</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function SectorTable({ rows }: { rows: SectorRow[] }) {
   return (
@@ -319,18 +500,75 @@ export default function HomePage() {
       </section>
 
       <section className="mb-16">
+        <h2 className="mb-2 text-xl font-semibold text-foreground">
+          Updated Subsector Company Map with Financing Brackets
+        </h2>
+        <div className="mb-6 space-y-1 text-sm text-muted">
+          <p>
+            Bracket format: [latest publicly disclosed round / financing: size |
+            lead backer].
+          </p>
+          <p>
+            N/D = not disclosed / no credible public round detail found. For
+            co-led rounds, one lead is shown for deck simplicity.
+          </p>
+        </div>
+        <div className="space-y-10">
+          {subsectorMap.map((group) => (
+            <div key={`bracketed-${group.sector}`}>
+              <h3 className="mb-3 text-base font-semibold text-foreground">
+                {group.sector}
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="min-w-full border-collapse text-sm">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="w-1/3 px-4 py-3 text-left font-semibold text-foreground">
+                        Subsector
+                      </th>
+                      <th className="px-4 py-3 text-left font-semibold text-foreground">
+                        Priority Companies
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {group.subsectors.map((sub) => (
+                      <tr
+                        key={`bracketed-${group.sector}-${sub.name}`}
+                        className="border-b border-border align-top"
+                      >
+                        <td className="px-4 py-3 text-foreground">{sub.name}</td>
+                        <td className="px-4 py-3">
+                          <CompanyList companies={sub.companies} />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {group.sourcesNote ? (
+                <p className="mt-3 text-xs italic text-muted">
+                  {group.sourcesNote}
+                </p>
+              ) : null}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-16">
         <h2 className="mb-4 text-xl font-semibold text-foreground">
-          Subsectors & Priority Companies
+          Clean Slide Version
         </h2>
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse text-sm">
             <thead>
               <tr className="border-b border-border">
-                <th className="w-1/3 px-4 py-3 text-left font-semibold text-foreground">
+                <th className="w-1/4 px-4 py-3 text-left font-semibold text-foreground">
                   Broad Sector
                 </th>
-                <th className="w-1/3 px-4 py-3 text-left font-semibold text-foreground">
-                  Succinct Subsectors
+                <th className="w-1/4 px-4 py-3 text-left font-semibold text-foreground">
+                  Subsector
                 </th>
                 <th className="px-4 py-3 text-left font-semibold text-foreground">
                   Priority Companies
@@ -341,7 +579,7 @@ export default function HomePage() {
               {subsectorMap.flatMap((group) =>
                 group.subsectors.map((sub, idx) => (
                   <tr
-                    key={`${group.sector}-${sub.name}`}
+                    key={`slide-${group.sector}-${sub.name}`}
                     className="border-b border-border align-top"
                   >
                     <td className="px-4 py-3 text-foreground">
@@ -350,8 +588,8 @@ export default function HomePage() {
                       ) : null}
                     </td>
                     <td className="px-4 py-3 text-foreground">{sub.name}</td>
-                    <td className="px-4 py-3 text-muted">
-                      {sub.companies.join(", ")}
+                    <td className="px-4 py-3">
+                      <CompanyList companies={sub.companies} />
                     </td>
                   </tr>
                 ))
@@ -359,6 +597,12 @@ export default function HomePage() {
             </tbody>
           </table>
         </div>
+        <p className="mt-4 text-xs italic text-muted">
+          For Klir, the disclosed $10.0mm Series B equity is used rather than
+          the combined $17.5mm growth financing package, which also included a
+          $7.5mm credit facility. Local-currency rounds are left in their
+          reported currency to avoid FX noise.
+        </p>
       </section>
 
       <section>
@@ -385,8 +629,8 @@ export default function HomePage() {
                     className="border-b border-border align-top"
                   >
                     <td className="px-4 py-3 text-foreground">{sub.name}</td>
-                    <td className="px-4 py-3 text-muted">
-                      {sub.companies.join(", ")}
+                    <td className="px-4 py-3">
+                      <CompanyList companies={sub.companies} />
                     </td>
                   </tr>
                 ))
