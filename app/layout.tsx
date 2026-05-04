@@ -5,8 +5,8 @@ import type { ReactNode } from 'react';
 import AuthGate from './auth-gate';
 
 export const metadata: Metadata = {
-  title: 'The North American Water Technology Sector',
-  description: 'Sector summary of the North American water technology landscape'
+  title: 'North American Infrastructure Portfolio',
+  description: 'Portfolio of North American infrastructure investments across Power & ET, Utilities, Digital, Midstream, and Transportation'
 };
 
 function ThemeScript() {
