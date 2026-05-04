@@ -1,244 +1,374 @@
-type PlainBullet = {
-  body: string;
-};
-
-type TitledBullet = {
-  title: string;
-  body: string;
-};
-
-type Subsection = {
-  heading: "Business Description" | "BNZ Mandate Alignment Rationale";
-  bullets: PlainBullet[] | TitledBullet[];
-};
-
-type Company = {
+type Entry = {
   name: string;
-  subsections: Subsection[];
+  sponsor: string;
+  year: string;
+  description: string;
 };
 
-const intro =
-  "Here are the requested profiles, formatted in succinct, growth equity business shorthand to highlight their exact alignment with the GA BNZ mandate.";
+type Category = {
+  heading: string;
+  entries: Entry[];
+};
 
-const companies: Company[] = [
+const categories: Category[] = [
   {
-    name: "H2O Innovation",
-    subsections: [
-      {
-        heading: "Business Description",
-        bullets: [
-          {
-            body: "Tech-enabled provider of custom water/wastewater treatment systems, specialized O&M services, and proprietary chemical consumables.",
-          },
-          {
-            body: 'Operates a highly recurring, "razor/razorblade" ecosystem servicing municipal and industrial clients primarily across North America.',
-          },
-        ],
-      },
-      {
-        heading: "BNZ Mandate Alignment Rationale",
-        bullets: [
-          {
-            title: "Capex-Light & Recurring Cash Flow",
-            body: "Revenue mix heavily indexes toward high-margin, sticky OPEX streams (multi-year O&M contracts, membrane specialty chemicals), perfectly fitting the mandate's asset-light and recurring-manufacturing criteria.",
-          },
-          {
-            title: "Check Size & Platform Scale",
-            body: "Mature, middle-market PE platform (Ember Infrastructure) with sufficient scale and Enterprise Value (EV) to seamlessly absorb a $100M+ growth equity injection or secondary buyout check to fund ongoing consolidation.",
-          },
-          {
-            title: "Zero FOAK Risk",
-            body: "Established unit economics and proven profitability insulated by non-discretionary municipal/industrial regulatory compliance; zero unproven deep-tech or venture cash-burn risk.",
-          },
-        ],
-      },
+    heading: "Power & ET",
+    entries: [
+      { name: "Acadia Renewable Energy", sponsor: "Carlyle Infrastructure", year: "2020", description: "Solar and battery storage development" },
+      { name: "AL Sandersville Holdings", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2021", description: "Gas-fired peaking generation" },
+      { name: "AlphaStruxure", sponsor: "Carlyle Infrastructure", year: "2019", description: "Microgrids and energy-as-a-service" },
+      { name: "Amadeus Wind Project", sponsor: "Fengate Asset Management", year: "2020", description: "Onshore wind generation" },
+      { name: "American Natural", sponsor: "Tiger", year: "2015", description: "Multi-fuel retail and wholesale fuel distribution" },
+      { name: "Amp Energy", sponsor: "Carlyle Infrastructure", year: "2021", description: "Solar, storage, and renewable energy platform" },
+      { name: "Apex Clean Energy", sponsor: "Ares Management", year: "2021", description: "Utility-scale renewable energy development" },
+      { name: "Arbor Renewable Gas", sponsor: "EnCap Investments", year: "2021", description: "Biomass-to-renewable fuels" },
+      { name: "Ash Creek Solar", sponsor: "Quinbrook", year: "2021", description: "Utility-scale solar generation" },
+      { name: "Astro Solar portfolio", sponsor: "Argo Infrastructure Partners", year: "2021", description: "Commercial and industrial distributed solar" },
+      { name: "Atlantic Power & Utilities", sponsor: "I Squared Capital", year: "2021", description: "Power generation portfolio" },
+      { name: "Atlantic Power Transmission LLC", sponsor: "Blackstone", year: "2021", description: "Offshore transmission development" },
+      { name: "Aurora Sustainable Lands", sponsor: "EIG Global Energy Partners", year: "2021", description: "Forest carbon and sustainable land management" },
+      { name: "Aypa Power", sponsor: "Blackstone", year: "2020", description: "Battery energy storage" },
+      { name: "BayWa r.e. AG", sponsor: "EIP", year: "2021", description: "Renewable energy development, IPP, asset operations, and energy trading" },
+      { name: "Bernhard, LLC", sponsor: "CVC DIF", year: "2021", description: "Energy-as-a-service and building infrastructure" },
+      { name: "Birdsboro Power LLC", sponsor: "Ares Management", year: "2017", description: "Natural gas-fired generation" },
+      { name: "Black Hills Colorado IPP", sponsor: "Argo Infrastructure Partners", year: "2016", description: "Natural gas-fired generation" },
+      { name: "BluEarth Renewables", sponsor: "CVC DIF", year: "2019", description: "Wind, hydro, and solar independent power producer" },
+      { name: "Brahms Wind", sponsor: "CVC DIF", year: "2019", description: "Onshore wind" },
+      { name: "Broad Reach Power", sponsor: "Apollo Global Management", year: "2021", description: "Renewable and storage development platform" },
+      { name: "Byrd Ranch", sponsor: "Quinbrook", year: "2019", description: "Battery energy storage system" },
+      { name: "Caledonia Generating LLC", sponsor: "Apollo Global Management", year: "2018", description: "Gas-fired power generation" },
+      { name: "Calibrant Energy", sponsor: "Macquarie Asset Management", year: "2020", description: "On-site solar, storage, and energy-as-a-service" },
+      { name: "Canadian Breaks", sponsor: "Northleaf", year: "2019", description: "Onshore wind generation" },
+      { name: "Canadian Hills Wind", sponsor: "CVC DIF", year: "2017", description: "Onshore wind" },
+      { name: "Caney River Wind", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2017", description: "Onshore wind generation" },
+      { name: "Capstone Infrastructure Corporation", sponsor: "iCON Infrastructure", year: "2016", description: "Renewable and low-carbon power generation" },
+      { name: "Captis Energy", sponsor: "EIC", year: "2021", description: "Landfill-gas-to-energy" },
+      { name: "Cardinal Renewables", sponsor: "Carlyle Infrastructure", year: "2020", description: "Utility-scale solar development platform" },
+      { name: "Carville Energy Center", sponsor: "Argo Infrastructure Partners", year: "2019", description: "Natural gas-fired generation" },
+      { name: "Cascade Power Project", sponsor: "CVC DIF", year: "2020", description: "Natural Gas Power Generation" },
+      { name: "Catalyst Old River Hydroelectric", sponsor: "ArcLight Capital Partners", year: "2011", description: "Hydroelectric Generation" },
+      { name: "Chisholm View Wind", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2019", description: "Onshore wind generation" },
+      { name: "Clearway Energy Group", sponsor: "Global Infrastructure Partners", year: "2018", description: "Utility-scale renewable power and storage" },
+      { name: "Convergent Energy and Power", sponsor: "ECP", year: "2019", description: "Battery storage and distributed energy infrastructure" },
+      { name: "Copia Power", sponsor: "Carlyle Infrastructure", year: "2021", description: "Utility-scale solar, storage, and power development" },
+      { name: "Cotton Plains Portfolio", sponsor: "Northleaf", year: "2016", description: "Wind and solar generation portfolio" },
+      { name: "Cypress Creek Renewables", sponsor: "EQT Infrastructure", year: "2021", description: "Solar and storage independent power producer" },
+      { name: "Cyrq Energy", sponsor: "Macquarie Asset Management", year: "2021", description: "Geothermal power generation" },
+      { name: "Danskammer Energy", sponsor: "Tiger", year: "2017", description: "Gas-fired power generation" },
+      { name: "Dauntless Energy", sponsor: "Ardian", year: "2018", description: "Renewable and flexible generation platform" },
+      { name: "Desert Sky Energy", sponsor: "EIC", year: "2017", description: "Utility-scale wind and solar generation" },
+      { name: "Desert Sunlight", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2016", description: "Utility-scale solar generation" },
+      { name: "Eastern Generation", sponsor: "ArcLight Capital Partners", year: "2015", description: "Gas-Fired Power Generation" },
+      { name: "Energy Storage", sponsor: "Copenhagen Infrastructure Partners", year: "2020", description: "Battery and long-duration energy storage portfolio" },
+      { name: "ENFRA", sponsor: "CVC DIF", year: "2021", description: "Energy solutions and building infrastructure services" },
+      { name: "Eolian", sponsor: "Global Infrastructure Partners", year: "2020", description: "Renewable project development and battery storage" },
+      { name: "Evolugen", sponsor: "Brookfield Asset Management", year: "1999", description: "Renewable power generation" },
+      { name: "Fighting Jays Solar", sponsor: "Copenhagen Infrastructure Partners", year: "2020", description: "Solar PV" },
+      { name: "Fort St. James Green Energy Project", sponsor: "Fengate Asset Management", year: "2013", description: "Biomass power generation" },
+      { name: "Fullmark Energy", sponsor: "InfraRed Capital Partners", year: "2018", description: "Battery energy storage development and operation" },
+      { name: "Generate Capital", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2021", description: "Sustainable infrastructure investment and operations" },
+      { name: "Generation Bridge", sponsor: "ArcLight Capital Partners", year: "2021", description: "Gas-Fired Power Generation" },
+      { name: "GlidePath Power Solutions", sponsor: "Quinbrook", year: "2017", description: "Battery energy storage development and operation" },
+      { name: "Goldendale Energy Storage", sponsor: "Copenhagen Infrastructure Partners", year: "2020", description: "Pumped hydro storage" },
+      { name: "Goodwell Wind", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2019", description: "Onshore wind generation" },
+      { name: "Gopher Resource, LLC", sponsor: "ECP", year: "2018", description: "Lead-acid battery recycling" },
+      { name: "Greasewood Solar", sponsor: "Copenhagen Infrastructure Partners", year: "2018", description: "Solar PV" },
+      { name: "Great Bay Renewables", sponsor: "Apollo Global Management", year: "2020", description: "Renewable energy royalties and project finance" },
+      { name: "GridPoint", sponsor: "I Squared Capital", year: "2021", description: "Distributed energy management software and controls" },
+      { name: "Habitat Solar", sponsor: "Basalt Infrastructure Partners", year: "2020", description: "Residential solar" },
+      { name: "Hawtree Solar Project", sponsor: "InfraRed Capital Partners", year: "2021", description: "Utility-scale solar generation" },
+      { name: "Helios Power", sponsor: "Basalt Infrastructure Partners", year: "2019", description: "Distributed solar" },
+      { name: "Holtwood and Safe Harbor Hydroelectric Facilities", sponsor: "Brookfield Asset Management", year: "2014", description: "Hydroelectric generation" },
+      { name: "HTEC", sponsor: "I Squared Capital", year: "2021", description: "Hydrogen production and fueling infrastructure" },
+      { name: "Idaho Biogas", sponsor: "Meridiam", year: "2020", description: "Biogas and renewable natural gas" },
+      { name: "Idaho Wind Partners", sponsor: "CVC DIF", year: "2019", description: "Onshore wind" },
+      { name: "Infinigen Renewables", sponsor: "ArcLight Capital Partners", year: "2021", description: "Solar & Battery Storage" },
+      { name: "IonicBlue", sponsor: "Apollo Global Management", year: "2021", description: "Energy-as-a-Service" },
+      { name: "Iron Star Wind Project", sponsor: "InfraRed Capital Partners", year: "2021", description: "Onshore wind generation" },
+      { name: "Kelso Valley Wind, Solar & Water", sponsor: "CIM Group", year: "2008", description: "Renewable generation and water infrastructure" },
+      { name: "Kindle Energy", sponsor: "Blackstone", year: "2015", description: "Power generation development and asset management" },
+      { name: "Kingfisher Wind", sponsor: "CVC DIF", year: "2021", description: "Onshore wind" },
+      { name: "Legence", sponsor: "Blackstone", year: "2020", description: "Building systems engineering and energy services" },
+      { name: "Live Oak Wind Farm", sponsor: "Equitix", year: "2021", description: "Onshore wind generation" },
+      { name: "Magnolia Power Generating Station", sponsor: "Blackstone", year: "2021", description: "Gas-fired generation" },
+      { name: "Maple Leaf", sponsor: "Ardian", year: "2020", description: "Battery energy storage" },
+      { name: "Merritt Biomass Plant", sponsor: "Fengate Asset Management", year: "2014", description: "Biomass-fired power generation" },
+      { name: "Meyersdale Energy Storage", sponsor: "Quinbrook", year: "2019", description: "Standalone battery energy storage" },
+      { name: "Misae Solar Park", sponsor: "Copenhagen Infrastructure Partners", year: "2018", description: "Solar PV" },
+      { name: "Mobile Energy LLC", sponsor: "Argo Infrastructure Partners", year: "2021", description: "Natural gas-fired generation" },
+      { name: "National Renewable Solutions", sponsor: "BlackRock", year: "2021", description: "Renewable project development" },
+      { name: "Neon Renewables", sponsor: "KKR", year: "2020", description: "Contracted wind and solar generation portfolio" },
+      { name: "NextEra Energy Partners 2.5 GW JV", sponsor: "Apollo Global Management", year: "2021", description: "Utility-Scale Renewables Portfolio" },
+      { name: "Nitrogen Renewables", sponsor: "KKR", year: "2019", description: "Wind and solar portfolio joint venture" },
+      { name: "North Carolina Solar", sponsor: "Equitix", year: "2021", description: "Utility-scale solar generation portfolio" },
+      { name: "Northampton Generating Company L.P.", sponsor: "Ares Management", year: "2015", description: "Waste coal-fired generation" },
+      { name: "Northern Star Generation", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2014", description: "Thermal power generation portfolio" },
+      { name: "Oneta Energy Center", sponsor: "Argo Infrastructure Partners", year: "2019", description: "Gas-Fired Power Generation" },
+      { name: "Oneta Power", sponsor: "Argo Infrastructure Partners", year: "2019", description: "Natural gas-fired generation" },
+      { name: "Onyx Renewables", sponsor: "Blackstone", year: "2014", description: "Commercial and industrial solar and storage" },
+      { name: "Origin Wind", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2019", description: "Onshore wind generation" },
+      { name: "Panther Grove Wind", sponsor: "Copenhagen Infrastructure Partners", year: "2019", description: "Onshore wind" },
+      { name: "Pearl / Ruby solar portfolio", sponsor: "Argo Infrastructure Partners", year: "2019", description: "Commercial and industrial solar portfolio" },
+      { name: "Pivot Energy", sponsor: "ECP", year: "2021", description: "Distributed and community solar and storage" },
+      { name: "PowerFin Partners Texas Solar Portfolio", sponsor: "Fengate Asset Management", year: "2018", description: "Operating solar portfolio" },
+      { name: "Prairie Rose Wind", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2019", description: "Onshore wind generation" },
+      { name: "Priddy Wind Project", sponsor: "InfraRed Capital Partners", year: "2021", description: "Onshore wind generation" },
+      { name: "Primergy", sponsor: "Quinbrook", year: "2020", description: "Utility-scale solar and battery storage development" },
+      { name: "Prospect Storage", sponsor: "Quinbrook", year: "2019", description: "Standalone battery energy storage" },
+      { name: "Pueblo Airport Generating Station", sponsor: "Argo Infrastructure Partners", year: "2016", description: "Gas-Fired Power Generation" },
+      { name: "Puna Geothermal Venture", sponsor: "Northleaf", year: "2015", description: "Geothermal generation" },
+      { name: "ReGenerate Energy Holdings, LLC", sponsor: "Ember Infrastructure", year: "2021", description: "Biomass power and sustainable products" },
+      { name: "RENEW Energy Partners", sponsor: "Ares Management", year: "2020", description: "Energy efficiency and energy-as-a-service" },
+      { name: "Rocky Ridge Wind", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2017", description: "Onshore wind generation" },
+      { name: "Saavi Energía", sponsor: "Global Infrastructure Partners", year: "2021", description: "Gas-fired generation and gas infrastructure" },
+      { name: "Sabre Industries", sponsor: "Blackstone", year: "2021", description: "Transmission, telecom and data center infrastructure components" },
+      { name: "Sage Solar PV Park", sponsor: "Copenhagen Infrastructure Partners", year: "2017", description: "Solar PV" },
+      { name: "Smoky Mountain Hydroelectric Facilities", sponsor: "Brookfield Asset Management", year: "2012", description: "Hydroelectric generation" },
+      { name: "Sol Systems", sponsor: "KKR", year: "2021", description: "Solar development, ownership, and energy-market services" },
+      { name: "SolarProponent", sponsor: "EnCap Investments", year: "2020", description: "Utility-scale solar development and project origination" },
+      { name: "Sparkfund", sponsor: "Vision Ridge", year: "2017", description: "Distributed energy deployment and energy-as-a-service" },
+      { name: "Spruance Operating Services LLC", sponsor: "Ares Management", year: "2015", description: "Natural gas-fired generation" },
+      { name: "St. Lawrence Wind", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2019", description: "Onshore wind generation" },
+      { name: "Sunningdale Solar Project", sponsor: "Fengate Asset Management", year: "2014", description: "Solar photovoltaic" },
+      { name: "SunShare, LLC", sponsor: "Ember Infrastructure", year: "2021", description: "Community solar" },
+      { name: "Swan Lake North Pumped Storage Project", sponsor: "Copenhagen Infrastructure Partners", year: "2020", description: "Pumped hydro storage" },
+      { name: "Terra-Gen", sponsor: "Igneo Infrastructure Partners", year: "2020", description: "Utility-scale wind, solar, and battery storage" },
+      { name: "TerraForm Power", sponsor: "Brookfield Asset Management", year: "2017", description: "Renewable power owner and operator" },
+      { name: "Thule Energy Storage", sponsor: "Argo Infrastructure Partners", year: "2018", description: "Behind-the-meter thermal energy storage" },
+      { name: "Transmission Developers Inc. / Champlain Hudson Power Express", sponsor: "Blackstone", year: "2010", description: "HVDC transmission development" },
+      { name: "US Wind", sponsor: "Apollo Global Management", year: "2020", description: "Offshore Wind" },
+      { name: "Valley of Fire", sponsor: "Quinbrook", year: "2017", description: "Solar and battery storage development portfolio" },
+      { name: "Vineyard Northeast", sponsor: "Copenhagen Infrastructure Partners", year: "2019", description: "Offshore wind development" },
+      { name: "Vineyard Wind 1", sponsor: "Copenhagen Infrastructure Partners", year: "2016", description: "Offshore wind" },
+      { name: "Vision RNG", sponsor: "Vision Ridge", year: "2021", description: "Landfill gas to renewable natural gas infrastructure" },
+      { name: "Vista Services", sponsor: "iCON Infrastructure", year: "2018", description: "Residential equipment leasing for HVAC, water, and home electrification equipment" },
+      { name: "Washington County Power", sponsor: "Harbert Management Corp (Harbert Infra / Gulf Pacific)", year: "2018", description: "Gas-fired peaking generation" },
+      { name: "West Coast Hydro", sponsor: "EIC", year: "2012", description: "Run-of-river hydroelectric generation" },
+      { name: "Westlands Solar Park (incl. Aquamarine Solar)", sponsor: "CIM Group", year: "2014", description: "Utility-scale solar and battery storage" },
     ],
   },
   {
-    name: "United Flow Technologies (UFT)",
-    subsections: [
-      {
-        heading: "Business Description",
-        bullets: [
-          {
-            body: "Buy-and-build platform providing highly engineered fluid handling solutions, aftermarket parts, and localized M&R (maintenance & repair) services.",
-          },
-          {
-            body: "Acts as a critical, asset-light distribution and service partner bridging specialized OEMs and end-user municipalities/industrials.",
-          },
-        ],
-      },
-      {
-        heading: "BNZ Mandate Alignment Rationale",
-        bullets: [
-          {
-            title: 'Asset-Light "Pick & Shovel" Model',
-            body: "Operations are purely focused on value-added distribution, systems integration, and lifecycle services rather than heavy balance-sheet manufacturing, heavy asset ownership, or project financing.",
-          },
-          {
-            title: "Sticky OPEX Profile",
-            body: "Revenue is anchored by highly recurring, non-discretionary replacement parts and M&R services tied to the aging North American water infrastructure base.",
-          },
-          {
-            title: "Scale & Capital Deployment",
-            body: "Backed by Berkshire Partners, representing a mature platform with the existing footprint, profitability, and inorganic M&A pipeline to deploy $100M–$300M+ via a minority recap or growth funding.",
-          },
-        ],
-      },
+    heading: "Utilities",
+    entries: [
+      { name: "Antelope Valley Water Bank", sponsor: "CIM Group", year: "2007", description: "Water banking and groundwater storage" },
+      { name: "Bayonne Energy Center", sponsor: "MSIP", year: "2018", description: "Gas-fired merchant power generation" },
+      { name: "Bayonne water and wastewater concession", sponsor: "Argo Infrastructure Partners", year: "2017", description: "Water and wastewater concession" },
+      { name: "BTR", sponsor: "Astatine Investment Partners", year: "2021", description: "Waste Fleet Rental" },
+      { name: "Central Utility Block (Heartland Petrochemical Complex)", sponsor: "Fengate Asset Management", year: "2018", description: "Industrial cogeneration and utility supply" },
+      { name: "CenTrio", sponsor: "QIC", year: "2021", description: "District energy" },
+      { name: "ClearCurrent", sponsor: "Bernhard Capital Partners", year: "2021", description: "Water and wastewater utility services" },
+      { name: "Cleco Corporate Holdings LLC", sponsor: "Macquarie Asset Management", year: "2016", description: "Regulated electric utility and wholesale generation" },
+      { name: "Creative Energy", sponsor: "Instar", year: "2018", description: "District energy systems" },
+      { name: "Cross-Sound Cable Company, LLC", sponsor: "Argo Infrastructure Partners", year: "2015", description: "Merchant electric transmission interconnector" },
+      { name: "Duquesne Light Company", sponsor: "Argo Infrastructure Partners", year: "2017", description: "Regulated electric distribution utility" },
+      { name: "Enercare Inc.", sponsor: "Brookfield Asset Management", year: "2018", description: "Residential energy infrastructure and home services" },
+      { name: "Freeport Energy Center", sponsor: "Fengate Asset Management", year: "2020", description: "Industrial cogeneration" },
+      { name: "Fresno State University Heating and Cooling Plant", sponsor: "Meridiam", year: "2021", description: "Campus utility and district energy" },
+      { name: "Granite Comfort", sponsor: "Tiger", year: "2019", description: "Residential HVAC infrastructure and services" },
+      { name: "Guzman Energy", sponsor: "Vision Ridge", year: "2018", description: "Wholesale power supply and portfolio management" },
+      { name: "Hudson Transmission Project", sponsor: "Argo Infrastructure Partners", year: "2019", description: "Merchant electric transmission interconnector" },
+      { name: "Metergy Solutions", sponsor: "Brookfield Asset Management", year: "2018", description: "Utility submetering and billing services" },
+      { name: "Middletown Water Joint Venture LLC", sponsor: "Argo Infrastructure Partners", year: "2017", description: "Water and wastewater concession" },
+      { name: "National Water Infrastructure", sponsor: "Bernhard Capital Partners", year: "2020", description: "Wastewater utility" },
+      { name: "Osmose Utilities Services, Inc.", sponsor: "EQT Infrastructure", year: "2019", description: "Grid inspection, maintenance, and restoration" },
+      { name: "PERENfra Water Joint Venture", sponsor: "CVC DIF", year: "2021", description: "Water and wastewater utility development" },
+      { name: "Service Experts", sponsor: "Brookfield Asset Management", year: "2018", description: "Residential HVAC, plumbing, and electrical services" },
+      { name: "Synagro Technologies", sponsor: "Goldman Sachs Asset Management", year: "2020", description: "Biosolids processing and resource recovery" },
+      { name: "Undine", sponsor: "Ridgewood", year: "2017", description: "Regulated water and wastewater utilities" },
+      { name: "University of Iowa Utility System", sponsor: "Meridiam", year: "2020", description: "Campus utility and district energy" },
+      { name: "US Water Systems", sponsor: "Argo Infrastructure Partners", year: "2017", description: "Water & Wastewater Concessions" },
+      { name: "Vicinity Energy", sponsor: "Antin Infrastructure Partners", year: "2019", description: "District energy systems" },
     ],
   },
   {
-    name: "Gradiant",
-    subsections: [
-      {
-        heading: "Business Description",
-        bullets: [
-          {
-            body: "End-to-end industrial water technology platform specializing in complex wastewater treatment, resource recovery, and zero liquid discharge (ZLD).",
-          },
-          {
-            body: "Leverages proprietary AI-driven software (SmartOps) and a Water-as-a-Service (WaaS) model to optimize plant performance and unit economics.",
-          },
-        ],
-      },
-      {
-        heading: "BNZ Mandate Alignment Rationale",
-        bullets: [
-          {
-            title: "Scale / Check Size Fit",
-            body: "Current unicorn status (>$1B valuation following its $225M Series D) aligns perfectly with BNZ's target for large-cap, $100M+ minority crossover / late-stage growth checks prior to a liquidity event.",
-          },
-          {
-            title: "Capex-Light WaaS Delivery",
-            body: "Avoids heavy infrastructure ownership by employing an asset-light Water-as-a-Service model, securing long-term recurring revenue streams alongside high-margin software ARR.",
-          },
-          {
-            title: "Proven Tech / No FOAK Risk",
-            body: "Technology is fully commercialized and validated across top-tier global industrial clients (semiconductor, pharma, F&B), demonstrating highly visible profitability and maturity well beyond venture-stage commercialization risk.",
-          },
-        ],
-      },
+    heading: "Digital",
+    entries: [
+      { name: "11:11 Systems", sponsor: "Tiger", year: "2021", description: "Managed cloud, network, and security infrastructure" },
+      { name: "400 Paul Avenue Data Center", sponsor: "CIM Group", year: "2017", description: "Hyperscale and wholesale data centers" },
+      { name: "All Points Broadband", sponsor: "Searchlight", year: "2021", description: "Fiber-to-the-home broadband" },
+      { name: "ALLO Communications, LLC", sponsor: "SDC", year: "2020", description: "Fiber-to-the-premise broadband" },
+      { name: "altafiber", sponsor: "Macquarie Asset Management", year: "2021", description: "Incumbent fiber broadband and telecom network" },
+      { name: "Altán Redes, S.A.P.I. de C.V.", sponsor: "MSIP", year: "2017", description: "Wholesale mobile network infrastructure" },
+      { name: "Aptum Technologies", sponsor: "DigitalBridge", year: "2019", description: "Data centers, cloud, and managed infrastructure" },
+      { name: "Astound Broadband", sponsor: "Stonepeak", year: "2021", description: "Hybrid fiber-coaxial and fiber broadband networks" },
+      { name: "AWS-1 A-Block License", sponsor: "Grain", year: "2013", description: "Wireless spectrum license" },
+      { name: "Bandwidth Infrastructure Group, LLC d/b/a BIG Fiber", sponsor: "SDC", year: "2020", description: "Metro dark fiber" },
+      { name: "Beanfield Metroconnect", sponsor: "DigitalBridge", year: "2019", description: "Metro fiber networks" },
+      { name: "BIG Fiber", sponsor: "SDC", year: "2020", description: "Metro dark fiber" },
+      { name: "Bluebird Fiber", sponsor: "Macquarie Asset Management", year: "2019", description: "Regional fiber network" },
+      { name: "Boingo Wireless", sponsor: "DigitalBridge", year: "2021", description: "Wi-Fi / DAS / neutral-host networks" },
+      { name: "Boston AFC 2.0 OpCo", sponsor: "Equitix", year: "2021", description: "Transit fare collection systems" },
+      { name: "Caban Systems, Inc.", sponsor: "Ember Infrastructure", year: "2021", description: "Telecom energy storage and energy-as-a-service" },
+      { name: "Cincinnati Bell Wireless spectrum licenses", sponsor: "Grain", year: "2014", description: "Wireless spectrum portfolio" },
+      { name: "Cologix", sponsor: "Stonepeak", year: "2017", description: "Carrier-neutral colocation and interconnection data centers" },
+      { name: "Crosslake Fibre", sponsor: "Tiger", year: "2017", description: "Subsea and terrestrial fiber networks" },
+      { name: "EdgeConneX", sponsor: "EQT Infrastructure", year: "2020", description: "Data centers" },
+      { name: "eStruxture Data Centers", sponsor: "Fengate Asset Management", year: "2017", description: "Data centers" },
+      { name: "Expedient", sponsor: "DigitalBridge", year: "2019", description: "Data centers and managed cloud infrastructure" },
+      { name: "Ezee Fiber", sponsor: "I Squared Capital", year: "2021", description: "Fiber-to-the-home broadband" },
+      { name: "FirstDigital Telecom, LLC", sponsor: "Apollo Global Management", year: "2021", description: "Fiber-based business telecommunications network" },
+      { name: "FirstLight Fiber", sponsor: "Antin Infrastructure Partners", year: "2018", description: "Fiber network operator" },
+      { name: "Great Plains Communications", sponsor: "Grain", year: "2018", description: "Regional fiber broadband and enterprise connectivity" },
+      { name: "IQ Fiber, LLC", sponsor: "SDC", year: "2021", description: "Fiber-to-the-home broadband" },
+      { name: "Joink, LLC", sponsor: "CVC DIF", year: "2021", description: "Fiber and fixed wireless broadband" },
+      { name: "KIO Networks", sponsor: "I Squared Capital", year: "2021", description: "Data centers and digital infrastructure services" },
+      { name: "Lightpath Holdings LLC", sponsor: "MSIP", year: "2020", description: "Enterprise and carrier fiber networks" },
+      { name: "LS Networks", sponsor: "Instar", year: "2021", description: "Middle-mile fiber and tower backhaul" },
+      { name: "Mexico Telecom Partners", sponsor: "Macquarie Asset Management", year: "2014", description: "Wireless towers and edge digital infrastructure" },
+      { name: "Netrality Data Centers", sponsor: "Macquarie Asset Management", year: "2019", description: "Interconnection and colocation data centers" },
+      { name: "Network Wireless Solutions", sponsor: "Grain", year: "2021", description: "Telecom distribution and field services" },
+      { name: "NewLevel", sponsor: "Grain", year: "2017", description: "Low-band wireless spectrum licenses" },
+      { name: "NewLevel II, L.P.", sponsor: "Grain", year: "2021", description: "Licensed wireless spectrum (C-band)" },
+      { name: "Novva Data Centers", sponsor: "CIM Group", year: "2020", description: "Wholesale and colocation data centers" },
+      { name: "QTS Data Centers", sponsor: "Blackstone", year: "2021", description: "Hyperscale and wholesale data centers" },
+      { name: "Ritter Communications", sponsor: "Grain", year: "2019", description: "Regional fiber broadband and business telecom" },
+      { name: "Rowan Digital Infrastructure", sponsor: "Quinbrook", year: "2020", description: "Hyperscale data center development" },
+      { name: "SQF, LLC d/b/a Verta", sponsor: "SDC", year: "2019", description: "Wireless towers, poles, and fiber" },
+      { name: "Strategic Venue Partners", sponsor: "Tiger", year: "2019", description: "In-building wireless infrastructure" },
+      { name: "Summit Broadband", sponsor: "Grain", year: "2020", description: "Fiber broadband and transport services" },
+      { name: "TowerCom", sponsor: "Fengate Asset Management", year: "2020", description: "Wireless communications towers" },
+      { name: "TruVista Communications", sponsor: "iCON Infrastructure", year: "2019", description: "Rural fiber broadband and telecom services" },
+      { name: "Unison Site Management", sponsor: "Ardian", year: "2021", description: "Wireless infrastructure ground leases" },
+      { name: "Valley Fiber Ltd.", sponsor: "CVC DIF", year: "2020", description: "Rural fiber broadband" },
+      { name: "Vantage Data Centers", sponsor: "DigitalBridge", year: "2017", description: "Hyperscale data centers" },
+      { name: "Vantage Data Centers North America", sponsor: "GCM", year: "2020", description: "Hyperscale and wholesale data centers" },
+      { name: "Vantage SDC", sponsor: "DigitalBridge", year: "2020", description: "Stabilized hyperscale data centers" },
+      { name: "Wyyerd Fiber", sponsor: "Carlyle Infrastructure", year: "2021", description: "Fiber-to-the-premise broadband" },
+      { name: "Xplore Inc.", sponsor: "Stonepeak", year: "2020", description: "Rural broadband access networks" },
+      { name: "Zayo Group Holdings, Inc.", sponsor: "EQT Infrastructure", year: "2020", description: "Fiber networks and bandwidth infrastructure" },
     ],
   },
   {
-    name: "Vessco Water",
-    subsections: [
-      {
-        heading: "Business Description",
-        bullets: [
-          {
-            body: "Market-leading value-added distributor and systems integrator of water/wastewater treatment equipment across North America.",
-          },
-          {
-            body: "Provides full-lifecycle support including engineering consultation, equipment procurement, and highly recurring aftermarket parts and field services.",
-          },
-        ],
-      },
-      {
-        heading: "BNZ Mandate Alignment Rationale",
-        bullets: [
-          {
-            title: "Capex-Light Value Chain Tollbooth",
-            body: "Pure-play services and distribution model that captures municipal water spend without the CAPEX burden of heavy manufacturing or proprietary technology R&D.",
-          },
-          {
-            title: "Scale & Consolidation Check",
-            body: "Mature PE-backed platform (Gryphon Investors) with a proven M&A roll-up framework, easily capable of absorbing a $100M+ check to aggressively fund regional consolidation in a highly fragmented TAM.",
-          },
-          {
-            title: "Profitable & De-risked",
-            body: "Generates highly predictable, profitable cash flows driven by a massive installed base, sticky aftermarket parts demand, and strict municipal regulatory tailwinds.",
-          },
-        ],
-      },
+    heading: "Midstream",
+    entries: [
+      { name: "ARB Midstream", sponsor: "EIG Global Energy Partners", year: "2017", description: "Crude oil and NGL logistics" },
+      { name: "Blue Racer Midstream, LLC", sponsor: "EIG Global Energy Partners", year: "2019", description: "Natural gas gathering, processing, and fractionation" },
+      { name: "Cheniere Energy Partners, L.P.", sponsor: "Blackstone", year: "2020", description: "LNG export" },
+      { name: "Coastal GasLink Pipeline Project", sponsor: "KKR", year: "2020", description: "Natural gas transmission pipeline" },
+      { name: "Cove Point LNG, LP", sponsor: "Brookfield Asset Management", year: "2019", description: "LNG terminal" },
+      { name: "Crescent Midstream", sponsor: "Carlyle Infrastructure", year: "2019", description: "Crude oil midstream and carbon capture infrastructure" },
+      { name: "CSV Midstream", sponsor: "Northleaf", year: "2019", description: "Natural gas processing and compression" },
+      { name: "CSV Midstream Solutions Corp.", sponsor: "Northleaf", year: "2019", description: "Natural gas processing and compression" },
+      { name: "Edgewater Midstream", sponsor: "EnCap Investments", year: "2020", description: "Crude oil and refined products storage, transportation, and terminalling" },
+      { name: "Eureka Midstream", sponsor: "MSIP", year: "2014", description: "Natural gas gathering pipeline system" },
+      { name: "Evolve Transition Infrastructure LP", sponsor: "Stonepeak", year: "2015", description: "Energy transition infrastructure and lower-carbon fuels assets" },
+      { name: "Greenfield Midstream", sponsor: "EnCap Investments", year: "2017", description: "Crude oil gathering, storage, and transportation" },
+      { name: "Hornet Midstream", sponsor: "MSIP", year: "2016", description: "Natural gas gathering pipeline system" },
+      { name: "Inter Pipeline Ltd.", sponsor: "Brookfield Asset Management", year: "2021", description: "Diversified midstream pipelines, processing, and storage" },
+      { name: "Kinetik Holdings Inc.", sponsor: "Blackstone", year: "2017", description: "Gas gathering, processing and transportation" },
+      { name: "Maurepas Pipeline", sponsor: "Astatine Investment Partners", year: "2018", description: "Natural Gas Pipeline" },
+      { name: "Midship Pipeline Company, LLC", sponsor: "EIG Global Energy Partners", year: "2019", description: "Natural gas transmission pipeline" },
+      { name: "Monterra Energy", sponsor: "KKR", year: "2015", description: "Natural gas transportation and distribution" },
+      { name: "Natural Gas Pipeline Co. of America", sponsor: "ArcLight Capital Partners", year: "2021", description: "Natural Gas Transmission & Storage" },
+      { name: "Next Wave Energy Partners, LP", sponsor: "ECP", year: "2015", description: "Alkylate production, processing, and fuels logistics" },
+      { name: "NorthRiver Midstream Inc.", sponsor: "Brookfield Asset Management", year: "2018", description: "Natural gas gathering and processing" },
+      { name: "Odfjell Terminals US", sponsor: "Northleaf", year: "2019", description: "Bulk liquid storage terminals" },
+      { name: "Oryx Midstream", sponsor: "Stonepeak", year: "2019", description: "Crude oil gathering and transportation" },
+      { name: "Oryx Midstream Services", sponsor: "Stonepeak", year: "2019", description: "Crude gathering, transportation, and storage" },
+      { name: "Pilot Water Solutions", sponsor: "Instar", year: "2019", description: "Produced water gathering, transportation, and disposal" },
+      { name: "Rockpoint Gas Storage", sponsor: "Brookfield Asset Management", year: "2016", description: "Natural gas storage" },
+      { name: "Steel Reef Infrastructure Corp.", sponsor: "Instar", year: "2016", description: "Associated gas capture and processing infrastructure" },
+      { name: "USD Group LLC", sponsor: "ECP", year: "2014", description: "Multi-modal energy logistics terminals and infrastructure" },
+      { name: "Venture Global Calcasieu Pass", sponsor: "Stonepeak", year: "2019", description: "LNG liquefaction and export facility" },
+      { name: "Vopak Industrial Infrastructure Americas", sponsor: "BlackRock", year: "2020", description: "Industrial terminals and storage" },
+      { name: "Xpress Natural Gas", sponsor: "Basalt Infrastructure Partners", year: "2021", description: "Virtual pipeline and compressed natural gas logistics" },
     ],
   },
   {
-    name: "120Water",
-    subsections: [
-      {
-        heading: "Business Description",
-        bullets: [
-          {
-            body: "Pure-play cloud software (SaaS) and digital logistics platform automating environmental water compliance for utilities and state agencies.",
-          },
-          {
-            body: "Core modules manage sampling, public communications, and regulatory data tracking driven by the EPA's LCRR (Lead & Copper Rule) and PFAS mandates.",
-          },
-        ],
-      },
-      {
-        heading: "BNZ Mandate Alignment Rationale",
-        bullets: [
-          {
-            title: "Pure Software DNA",
-            body: "100% asset-light software model characterized by highly predictable, recurring SaaS ARR and strong gross margins, completely avoiding heavy infrastructure, hardware, or FOAK risk.",
-          },
-          {
-            title: "Inflection Point for $100M+ Scale",
-            body: "Having recently raised a $43M growth round, the platform is rapidly scaling past early-stage venture bounds and is primed for a $100M+ equity check to fund aggressive platform M&A or a majority growth recap.",
-          },
-          {
-            title: "Regulatory Catalyst & Clear Profitability",
-            body: "Rapid growth is entirely underwritten by urgent, non-discretionary federal EPA compliance deadlines generating guaranteed utility OPEX spend, providing a highly visible path to durable profitability.",
-          },
-        ],
-      },
+    heading: "Transportation",
+    entries: [
+      { name: "Altavair, L.P. / Altitude Aircraft Leasing", sponsor: "KKR", year: "2018", description: "Aircraft leasing" },
+      { name: "American Corporate Airport Partners, LLC", sponsor: "Oaktree / Duration", year: "2019", description: "Business aviation and airport support infrastructure" },
+      { name: "AMPORTS, Inc.", sponsor: "Instar", year: "2018", description: "Automotive port logistics and processing" },
+      { name: "Arctic Cold", sponsor: "GCM", year: "2019", description: "Temperature-controlled warehousing and cold-chain logistics" },
+      { name: "Arthur Kill Terminal", sponsor: "Apollo Global Management", year: "2021", description: "Offshore wind port infrastructure" },
+      { name: "Atlantic Aviation", sponsor: "KKR", year: "2021", description: "Fixed-base operator network" },
+      { name: "Avports", sponsor: "Goldman Sachs Asset Management", year: "2018", description: "Airport operations and management" },
+      { name: "CAG Holdings / The New Terminal One at JFK", sponsor: "Carlyle Infrastructure", year: "2019", description: "Airport terminal public-private partnership" },
+      { name: "Carolina Marine Terminal", sponsor: "Ridgewood", year: "2020", description: "Marine bulk terminal" },
+      { name: "Central 70", sponsor: "Meridiam", year: "2017", description: "Highway DBFOM concession" },
+      { name: "Ceres Terminals Jacksonville", sponsor: "Macquarie Asset Management", year: "2015", description: "Marine container terminal" },
+      { name: "ConGlobal", sponsor: "DigitalBridge", year: "2017", description: "Intermodal terminals and container depots" },
+      { name: "Denver Transit Partners", sponsor: "Equitix", year: "2021", description: "Commuter rail PPP" },
+      { name: "Edmonton Valley Line LRT Southeast", sponsor: "Fengate Asset Management", year: "2016", description: "Light rail transit PPP" },
+      { name: "Electrada", sponsor: "BlackRock", year: "2021", description: "EV fleet charging infrastructure" },
+      { name: "First Student", sponsor: "EQT Infrastructure", year: "2021", description: "Student transportation" },
+      { name: "FlexiVan", sponsor: "I Squared Capital", year: "2020", description: "Intermodal chassis leasing" },
+      { name: "Highland Electric Fleets", sponsor: "Vision Ridge", year: "2021", description: "Electric fleet and school bus electrification services" },
+      { name: "I-4 Mobility Partners", sponsor: "Equitix", year: "2021", description: "Availability-based highway PPP" },
+      { name: "I-77 Mobility Partners", sponsor: "Equitix", year: "2021", description: "Managed lanes toll concession" },
+      { name: "Inspiration Mobility Group", sponsor: "ArcLight Capital Partners", year: "2021", description: "EV Fleet Charging Infrastructure" },
+      { name: "International Transportation Service, LLC", sponsor: "Macquarie Asset Management", year: "2020", description: "Marine container terminal" },
+      { name: "ION Light Rail Transit", sponsor: "Meridiam", year: "2014", description: "Light rail transit concession" },
+      { name: "Iowa Interstate Railroad, Ltd.", sponsor: "iCON Infrastructure", year: "2020", description: "Regional freight railroad" },
+      { name: "JET Infrastructure", sponsor: "Instar", year: "2018", description: "Aviation fuel storage and pipeline infrastructure" },
+      { name: "JFK Terminal 6 Redevelopment", sponsor: "Fengate Asset Management", year: "2020", description: "Airport terminal concession" },
+      { name: "Kicking Horse Canyon", sponsor: "InfraRed Capital Partners", year: "2010", description: "Highway concession" },
+      { name: "LaGuardia Terminal B", sponsor: "Meridiam", year: "2016", description: "Airport terminal concession" },
+      { name: "LAZ Parking", sponsor: "Argo Infrastructure Partners", year: "2021", description: "Parking Management & Mobility" },
+      { name: "Lineage", sponsor: "Stonepeak", year: "2018", description: "Temperature-controlled warehousing and cold-chain logistics" },
+      { name: "Long Beach Container Terminal", sponsor: "Macquarie Asset Management", year: "2019", description: "Marine container terminal" },
+      { name: "Maher Terminals LLC", sponsor: "Macquarie Asset Management", year: "2016", description: "Marine container terminal" },
+      { name: "Millennium Garages", sponsor: "DigitalBridge", year: "2016", description: "Urban parking concession" },
+      { name: "Millennium Parking Garages, LLC", sponsor: "Northleaf", year: "2016", description: "Urban parking concession" },
+      { name: "Mobilinx", sponsor: "Equitix", year: "2021", description: "Light rail transit PPP" },
+      { name: "Neighborhood Property Group", sponsor: "Oaktree / Duration", year: "2020", description: "Urban parking and last-mile real estate platform" },
+      { name: "North America Central School Bus", sponsor: "H.I.G. Capital", year: "2021", description: "School bus transportation" },
+      { name: "North Tarrant Express Segment 3", sponsor: "Meridiam", year: "2013", description: "Managed lanes toll road" },
+      { name: "North Tarrant Express Segments 1 and 2", sponsor: "Meridiam", year: "2009", description: "Managed lanes toll road" },
+      { name: "Northeast Anthony Henday Drive", sponsor: "Meridiam", year: "2012", description: "Availability-based highway concession" },
+      { name: "NorthLink Aviation", sponsor: "Tiger", year: "2021", description: "Airport cargo infrastructure" },
+      { name: "Northwest Anthony Henday Ring Road", sponsor: "InfraRed Capital Partners", year: "2010", description: "Availability-based road PPP" },
+      { name: "NYNJ Link Partnership", sponsor: "Macquarie Asset Management", year: "2013", description: "Bridge public-private partnership" },
+      { name: "Oakland Corridor Partners", sponsor: "Equitix", year: "2021", description: "Availability-based highway PPP" },
+      { name: "Patriot Rail", sponsor: "Igneo Infrastructure Partners", year: "2019", description: "Short line freight railroads" },
+      { name: "PECO Pallet", sponsor: "Astatine Investment Partners", year: "2020", description: "Pallet Pooling and Logistics" },
+      { name: "Pine Street Garage", sponsor: "CIM Group", year: "2018", description: "Urban parking infrastructure" },
+      { name: "Pocahontas Parkway", sponsor: "Northleaf", year: "2017", description: "Toll road concession" },
+      { name: "Port of Miami Tunnel", sponsor: "Meridiam", year: "2009", description: "Road tunnel availability concession" },
+      { name: "Portsmouth Gateway Group", sponsor: "InfraRed Capital Partners", year: "2015", description: "Availability-based road PPP" },
+      { name: "Presidio Parkway", sponsor: "Meridiam", year: "2012", description: "Road concession" },
+      { name: "Purple Line Light Rail Transit", sponsor: "Meridiam", year: "2016", description: "Light rail transit concession" },
+      { name: "REEF Technology", sponsor: "Oaktree / Duration", year: "2020", description: "Urban parking and neighborhood logistics infrastructure" },
+      { name: "Regional Rail, LLC", sponsor: "3i Group", year: "2019", description: "Short-line freight railroads" },
+      { name: "Sixth Avenue Garage", sponsor: "CIM Group", year: "2019", description: "Urban parking infrastructure" },
+      { name: "Skyservice Business Aviation Inc.", sponsor: "Instar", year: "2017", description: "Fixed-base operations, aircraft management, and MRO" },
+      { name: "Skyservice US (formerly Leading Edge Jet Center)", sponsor: "Instar", year: "2019", description: "Fixed-base operations and business aviation services" },
+      { name: "Smarte Carte International Holdings, Inc.", sponsor: "3i Group", year: "2017", description: "Passenger services equipment and concessions" },
+      { name: "Southwest Calgary Ring Road", sponsor: "Meridiam", year: "2016", description: "Availability-based highway concession" },
+      { name: "Stonepeak Infrastructure Logistics Platform", sponsor: "Stonepeak", year: "2021", description: "Industrial logistics real estate" },
+      { name: "TRAC Intermodal", sponsor: "Stonepeak", year: "2020", description: "Marine chassis leasing and pool management" },
+      { name: "Transform 66 Outside the Beltway", sponsor: "Meridiam", year: "2017", description: "Managed lanes toll road" },
+      { name: "Watco Companies, LLC", sponsor: "Oaktree / Duration", year: "2019", description: "Short line rail, terminals, ports, and logistics" },
+      { name: "Yusen Terminals LLC", sponsor: "Macquarie Asset Management", year: "2015", description: "Marine container terminal" },
     ],
   },
 ];
 
-function isTitledBullet(
-  bullet: PlainBullet | TitledBullet
-): bullet is TitledBullet {
-  return "title" in bullet;
-}
-
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-16">
-      <p className="mb-12 leading-relaxed text-foreground">{intro}</p>
       <div className="space-y-14">
-        {companies.map((company) => (
-          <section key={company.name}>
+        {categories.map((category) => (
+          <section key={category.heading}>
             <h2 className="mb-6 text-2xl font-semibold text-foreground">
-              {company.name}
+              {category.heading}
             </h2>
-            <div className="space-y-6">
-              {company.subsections.map((subsection) => (
-                <div key={subsection.heading}>
-                  <h3 className="mb-3 text-lg font-semibold text-foreground">
-                    {subsection.heading}
-                  </h3>
-                  <ul className="space-y-3">
-                    {subsection.bullets.map((bullet, index) => (
-                      <li
-                        key={
-                          isTitledBullet(bullet)
-                            ? bullet.title
-                            : `${subsection.heading}-${index}`
-                        }
-                        className="flex gap-3 leading-relaxed"
-                      >
-                        <span aria-hidden="true" className="text-muted">
-                          •
-                        </span>
-                        {isTitledBullet(bullet) ? (
-                          <p className="text-foreground">
-                            <span className="font-semibold">
-                              {bullet.title}:
-                            </span>{" "}
-                            <span className="text-muted">{bullet.body}</span>
-                          </p>
-                        ) : (
-                          <p className="text-muted">{bullet.body}</p>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <ul className="space-y-3">
+              {category.entries.map((entry) => (
+                <li
+                  key={`${category.heading}-${entry.name}-${entry.sponsor}-${entry.year}`}
+                  className="leading-relaxed"
+                >
+                  <span className="font-semibold text-foreground">
+                    {entry.name}
+                  </span>{" "}
+                  <span className="text-muted">
+                    ({entry.sponsor} | {entry.year} | {entry.description})
+                  </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
         ))}
       </div>
