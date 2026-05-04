@@ -581,34 +581,51 @@ const firms: Firm[] = [
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
-      <div className="space-y-10">
-        {firms.map((firm) => (
-          <section key={firm.name}>
-            <h2 className="mb-4 text-xl font-bold text-foreground underline">
-              {firm.name}
-            </h2>
-            <ul className="space-y-2">
-              {firm.entries.map((entry) => (
-                <li
-                  key={`${firm.name}-${entry.name}-${entry.year}`}
-                  className="flex gap-3 leading-relaxed"
-                >
-                  <span aria-hidden="true" className="text-muted">
-                    •
-                  </span>
-                  <p className="text-foreground">
-                    {entry.name}{" "}
-                    <span className="text-muted">
-                      ({firm.name} | {entry.year} | {entry.description})
-                    </span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
+    <div
+      style={{
+        maxWidth: "56rem",
+        margin: "0 auto",
+        padding: "4rem 1.5rem",
+        fontFamily:
+          "Calibri, 'Segoe UI', Arial, sans-serif",
+        fontSize: "11pt",
+        lineHeight: 1.5,
+        color: "#0b1020",
+      }}
+    >
+      {firms.map((firm, firmIndex) => (
+        <div
+          key={firm.name}
+          style={{ marginBottom: firmIndex === firms.length - 1 ? 0 : "1.5em" }}
+        >
+          <p
+            style={{
+              margin: "0 0 0.5em 0",
+              fontSize: "12pt",
+            }}
+          >
+            <strong>
+              <u>{firm.name}</u>
+            </strong>
+          </p>
+          <ul
+            style={{
+              listStyleType: "disc",
+              margin: "0 0 0 1.5em",
+              padding: 0,
+            }}
+          >
+            {firm.entries.map((entry) => (
+              <li
+                key={`${firm.name}-${entry.name}-${entry.year}`}
+                style={{ margin: "0 0 0.25em 0" }}
+              >
+                {entry.name} ({firm.name} | {entry.year} | {entry.description})
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }
