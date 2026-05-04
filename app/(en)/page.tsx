@@ -592,11 +592,8 @@ export default function HomePage() {
               {firm.entries.map((entry) => (
                 <li
                   key={`${firm.name}-${entry.name}-${entry.year}`}
-                  className="flex gap-3 leading-relaxed"
+                  className="leading-relaxed"
                 >
-                  <span aria-hidden="true" className="text-muted">
-                    •
-                  </span>
                   <p className="text-foreground">
                     {entry.name}{" "}
                     <span className="text-muted">
