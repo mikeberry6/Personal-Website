@@ -596,7 +596,7 @@ export default function HomePage() {
       {firms.map((firm, firmIndex) => (
         <div
           key={firm.name}
-          style={{ marginBottom: firmIndex === firms.length - 1 ? 0 : "1.5em" }}
+          style={{ marginBottom: firmIndex === firms.length - 1 ? 0 : "2.5em" }}
         >
           <p
             style={{
@@ -620,7 +620,8 @@ export default function HomePage() {
                 key={`${firm.name}-${entry.name}-${entry.year}`}
                 style={{ margin: "0 0 0.25em 0" }}
               >
-                {entry.name} ({firm.name} | {entry.year} | {entry.description})
+                <strong>{entry.name}</strong> ({firm.name} | {entry.year} |{" "}
+                {entry.description})
               </li>
             ))}
           </ul>
