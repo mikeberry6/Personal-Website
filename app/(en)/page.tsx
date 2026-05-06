@@ -87,6 +87,32 @@ export default function HomePage() {
       </p>
 
       <h2 style={h2Style}>
+        <strong>Key Operating Trends</strong>
+      </h2>
+      <ul style={ulStyle}>
+        <li style={liStyle}>
+          <strong>Divergent Utilization Trends:</strong> Average fleet
+          utilization dropped in Mobile Modular to 70.0% (down from 74.6% in
+          Q1 2025) and in Portable Storage to 58.6% (down from 60.2%), as
+          equipment returns from older projects outpaced new shipments.
+          Conversely, TRS-RenTelco utilization surged to 66.1% (up from
+          61.6%), marking its highest first-quarter level since 2021 as it
+          capitalized on robust equipment demand from new data center
+          buildouts.
+        </li>
+        <li style={liStyle}>
+          <strong>Anticipatory Margin Compression:</strong> Rental gross
+          margins compressed in the core businesses, falling to 56% (from 60%
+          a year ago) in Mobile Modular and 80% (from 84%) in Portable
+          Storage. Management emphasized this was margin compression for the
+          &ldquo;right reasons,&rdquo; as the company proactively incurred
+          higher inventory center costs&mdash;including a $3.2 million
+          increase in Mobile Modular&mdash;to prepare idle equipment for an
+          upcoming pipeline of new seasonal shipments.
+        </li>
+      </ul>
+
+      <h2 style={h2Style}>
         <strong>Segment-by-Segment Deep Dive</strong>
       </h2>
 
