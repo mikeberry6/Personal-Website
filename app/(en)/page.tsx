@@ -383,6 +383,83 @@ export default function HomePage() {
           </tr>
         </tbody>
       </table>
+
+      <h2 style={h2Style}>
+        <strong>6. Subsegment overview</strong>
+      </h2>
+      <p style={paragraphStyle}>
+        <strong>Desalination:</strong> This is the main business and profit
+        engine. ERII sells high-pressure PX devices, pumps, and turbochargers
+        into seawater reverse-osmosis desalination plants. Customers include
+        developers, EPC firms, OEMs, plant owners, and operators. In FY25,
+        the broader &ldquo;Water&rdquo; segment generated almost all company
+        revenue: $134.7 million of ERII&rsquo;s $135.0 million total revenue.
+      </p>
+      <p style={paragraphStyle}>
+        <strong>Wastewater:</strong> This is the growth-option business. ERII
+        is applying PX technology to industrial and municipal water reuse,
+        brackish water, zero-liquid-discharge, and high-pressure
+        reverse-osmosis applications. In Q1 2026, ERII separated Wastewater
+        into a new reporting segment; revenue was still tiny at $0.6 million,
+        but management said the low-pressure PX pipeline had more than
+        doubled over the past twelve months.
+      </p>
+      <p style={paragraphStyle}>
+        <strong>Emerging Technologies / CO&#8322;:</strong> This was
+        ERII&rsquo;s attempt to apply pressure-exchanger technology to
+        CO&#8322; refrigeration, especially grocery retail. The company
+        decided to wind down the CO&#8322; retail grocery business after a
+        &ldquo;fundamental change&rdquo; in outlook. Q1 2026 included
+        restructuring charges, goodwill impairment, and inventory reserve
+        charges tied to that shutdown.
+      </p>
+
+      <h2 style={h2Style}>
+        <strong>
+          7. Geography: the business is very international and Middle
+          East-heavy
+        </strong>
+      </h2>
+      <p style={paragraphStyle}>
+        This is one of the most important things to understand. In FY25, 98%
+        of product revenue was international. By country, Saudi Arabia was
+        28% of product revenue and Qatar was 12%. By broader region, the
+        Middle East was $68.2 million of FY25 revenue, and Africa was $15.0
+        million.
+      </p>
+      <p style={paragraphStyle}>
+        That concentration is both a strength and a risk. The Middle East and
+        North Africa are major desalination markets, but geopolitical events
+        can delay projects. In the Q1 2026 shareholder letter, management
+        said the war in Iran severely limited near-term visibility and caused
+        ERII to temporarily withdraw 2026 guidance. Management also said
+        projects in countries exposed to the conflict represented about 40%
+        of original 2026 desalination guidance at the midpoint.
+      </p>
+
+      <h2 style={h2Style}>
+        <strong>8. What changed in 2026</strong>
+      </h2>
+      <p style={paragraphStyle}>Three big updates matter:</p>
+      <p style={paragraphStyle}>
+        <strong>First, management transition.</strong> CEO David Moon intends
+        to retire once a successor is appointed, and CFO Mike Mancini
+        resigned effective May 6, 2026; Aidan Ryan became interim CFO.
+      </p>
+      <p style={paragraphStyle}>
+        <strong>Second, CO&#8322; is being wound down.</strong> Q1 2026 gross
+        margin was only 27.8%, but that was distorted by a $1.6 million
+        inventory reserve tied to the CO&#8322; wind-down, plus other
+        restructuring and impairment charges. Management says restructuring
+        is substantially complete and expects minimal future charges.
+      </p>
+      <p style={paragraphStyle}>
+        <strong>Third, new desalination product cycle.</strong> ERII launched
+        the PX Q650 in March 2026 and said it already received its first
+        commercial order. Management claims it has the lowest specific energy
+        consumption of any energy recovery device on the market, while
+        maintaining a 30-year design life and industry-leading uptime.
+      </p>
     </div>
   );
 }
