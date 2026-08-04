@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Download the Data format PowerPoint presentation." />
+    <meta name="description" content="Download the Data format and Data slides PowerPoint presentations." />
     <meta name="theme-color" content="#442142" />
-    <title>Data format</title>
+    <title>Presentation downloads</title>
     <style>
       :root {
         color-scheme: light;
@@ -48,7 +48,7 @@
       }
 
       .panel {
-        width: min(680px, 100%);
+        width: min(820px, 100%);
         padding: clamp(30px, 7vw, 58px);
         border: 1px solid var(--line);
         border-radius: 10px;
@@ -80,12 +80,37 @@
         line-height: 1.6;
       }
 
+      .downloads {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 34px;
+      }
+
+      .item {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fcfbfc;
+      }
+
+      .item h2 {
+        margin: 0;
+        font-size: 24px;
+        letter-spacing: -0.025em;
+      }
+
+      .item .description {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+
       .download {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         min-height: 48px;
-        margin-top: 32px;
+        margin-top: 22px;
         padding: 0 22px;
         border: 1px solid var(--purple);
         border-radius: 6px;
@@ -123,6 +148,10 @@
         .download {
           width: 100%;
         }
+
+        .downloads {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -130,15 +159,33 @@
     <div class="accent" aria-hidden="true"></div>
     <main>
       <section class="panel" aria-labelledby="page-title">
-        <p class="eyebrow">PowerPoint download</p>
-        <h1 id="page-title">Data format</h1>
+        <p class="eyebrow">PowerPoint downloads</p>
+        <h1 id="page-title">Presentation downloads</h1>
         <p class="description">
-          Customer and site master data-format presentation, repaired and tested for PowerPoint compatibility.
+          Download the latest presentation files directly from this page.
         </p>
-        <a class="download" href="./data-format.pptx" download="data-format.pptx">
-          Download PowerPoint
-        </a>
-        <p class="meta">PowerPoint (.pptx) · 469 KB · Updated August 2026</p>
+        <div class="downloads">
+          <article class="item">
+            <h2>Data format</h2>
+            <p class="description">
+              Customer and site master data-format presentation, repaired and tested for PowerPoint compatibility.
+            </p>
+            <a class="download" href="./data-format.pptx" download="data-format.pptx">
+              Download Data format
+            </a>
+            <p class="meta">PowerPoint (.pptx) · 469 KB · Updated August 2026</p>
+          </article>
+          <article class="item">
+            <h2>Data slides</h2>
+            <p class="description">
+              The latest PowerPoint from your GPT chat history, ready to download.
+            </p>
+            <a class="download" href="./data-slides.pptx" download="data-slides.pptx">
+              Download Data slides
+            </a>
+            <p class="meta">PowerPoint (.pptx) · 12.4 MB · Updated August 2026</p>
+          </article>
+        </div>
       </section>
     </main>
   </body>
